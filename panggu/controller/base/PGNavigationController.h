@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PGNavigationController : UINavigationController
-
+@property(nonatomic, weak)UIViewController *tempRootController;
 @end

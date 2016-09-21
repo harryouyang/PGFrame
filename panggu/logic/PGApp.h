@@ -6,8 +6,14 @@
 //  Copyright © 2016年 pangu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PGApp : NSObject
+
++ (void)configAppNavBar;
+
++ (UIViewController *)appRootController;
+
++ (void)asyncOnMainQueue:(dispatch_block_t)block;
 
 @end

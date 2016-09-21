@@ -13,6 +13,13 @@
 		1134A3EB1D9225C00030B728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1134A3E91D9225C00030B728 /* Main.storyboard */; };
 		1134A3ED1D9225C00030B728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1134A3EC1D9225C00030B728 /* Assets.xcassets */; };
 		1134A3F01D9225C00030B728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1134A3EE1D9225C00030B728 /* LaunchScreen.storyboard */; };
+		1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4271D922C7A0030B728 /* PGBaseController.m */; };
+		1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A42A1D922EA50030B728 /* PGNavigationController.m */; };
+		1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A42E1D9236090030B728 /* UIAlertView+action.m */; };
+		1134A4321D92528E0030B728 /* PGApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4311D92528E0030B728 /* PGApp.m */; };
+		1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4371D9266B70030B728 /* UIImage+PGImage.m */; };
+		1134A43E1D926D100030B728 /* PGHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A43D1D926D100030B728 /* PGHomeController.m */; };
+		1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4401D9271770030B728 /* PGUIKitUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,22 @@
 		1134A3EC1D9225C00030B728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1134A3EF1D9225C00030B728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1134A3F11D9225C00030B728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1134A4261D922C7A0030B728 /* PGBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseController.h; sourceTree = "<group>"; };
+		1134A4271D922C7A0030B728 /* PGBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseController.m; sourceTree = "<group>"; };
+		1134A4291D922EA50030B728 /* PGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNavigationController.h; sourceTree = "<group>"; };
+		1134A42A1D922EA50030B728 /* PGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNavigationController.m; sourceTree = "<group>"; };
+		1134A42D1D9236090030B728 /* UIAlertView+action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+action.h"; sourceTree = "<group>"; };
+		1134A42E1D9236090030B728 /* UIAlertView+action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+action.m"; sourceTree = "<group>"; };
+		1134A4301D92528E0030B728 /* PGApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApp.h; sourceTree = "<group>"; };
+		1134A4311D92528E0030B728 /* PGApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApp.m; sourceTree = "<group>"; };
+		1134A4331D9254310030B728 /* PGMacroDefHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMacroDefHeader.h; sourceTree = "<group>"; };
+		1134A4341D9254A10030B728 /* PGConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConfig.h; sourceTree = "<group>"; };
+		1134A4361D9266B70030B728 /* UIImage+PGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PGImage.h"; sourceTree = "<group>"; };
+		1134A4371D9266B70030B728 /* UIImage+PGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PGImage.m"; sourceTree = "<group>"; };
+		1134A43C1D926D100030B728 /* PGHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGHomeController.h; sourceTree = "<group>"; };
+		1134A43D1D926D100030B728 /* PGHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGHomeController.m; sourceTree = "<group>"; };
+		1134A43F1D9271770030B728 /* PGUIKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGUIKitUtil.h; sourceTree = "<group>"; };
+		1134A4401D9271770030B728 /* PGUIKitUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGUIKitUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +65,7 @@
 		1134A3D41D9225C00030B728 = {
 			isa = PBXGroup;
 			children = (
+				1134A41B1D922C0A0030B728 /* panggu */,
 				1134A3DF1D9225C00030B728 /* PGFrame */,
 				1134A3DE1D9225C00030B728 /* Products */,
 			);
@@ -77,6 +101,133 @@
 				1134A3E11D9225C00030B728 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1134A41B1D922C0A0030B728 /* panggu */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4351D9266640030B728 /* category */,
+				1134A41C1D922C0A0030B728 /* controller */,
+				1134A41E1D922C0A0030B728 /* image */,
+				1134A41F1D922C0A0030B728 /* lib */,
+				1134A4201D922C0A0030B728 /* logic */,
+				1134A4211D922C0A0030B728 /* model */,
+				1134A4221D922C0A0030B728 /* ui */,
+			);
+			path = panggu;
+			sourceTree = "<group>";
+		};
+		1134A41C1D922C0A0030B728 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4391D926C540030B728 /* home */,
+				1134A43A1D926C540030B728 /* list */,
+				1134A43B1D926C540030B728 /* setting */,
+				1134A41D1D922C0A0030B728 /* base */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1134A41D1D922C0A0030B728 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4261D922C7A0030B728 /* PGBaseController.h */,
+				1134A4271D922C7A0030B728 /* PGBaseController.m */,
+				1134A4291D922EA50030B728 /* PGNavigationController.h */,
+				1134A42A1D922EA50030B728 /* PGNavigationController.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		1134A41E1D922C0A0030B728 /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		1134A41F1D922C0A0030B728 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1134A4201D922C0A0030B728 /* logic */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4301D92528E0030B728 /* PGApp.h */,
+				1134A4311D92528E0030B728 /* PGApp.m */,
+				1134A4331D9254310030B728 /* PGMacroDefHeader.h */,
+				1134A4341D9254A10030B728 /* PGConfig.h */,
+				1134A43F1D9271770030B728 /* PGUIKitUtil.h */,
+				1134A4401D9271770030B728 /* PGUIKitUtil.m */,
+			);
+			path = logic;
+			sourceTree = "<group>";
+		};
+		1134A4211D922C0A0030B728 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1134A4221D922C0A0030B728 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				1134A42C1D9235AB0030B728 /* category */,
+				1134A4231D922C0A0030B728 /* tableCell */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		1134A4231D922C0A0030B728 /* tableCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tableCell;
+			sourceTree = "<group>";
+		};
+		1134A42C1D9235AB0030B728 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				1134A42D1D9236090030B728 /* UIAlertView+action.h */,
+				1134A42E1D9236090030B728 /* UIAlertView+action.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		1134A4351D9266640030B728 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4361D9266B70030B728 /* UIImage+PGImage.h */,
+				1134A4371D9266B70030B728 /* UIImage+PGImage.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		1134A4391D926C540030B728 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1134A43C1D926D100030B728 /* PGHomeController.h */,
+				1134A43D1D926D100030B728 /* PGHomeController.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		1134A43A1D926C540030B728 /* list */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		1134A43B1D926C540030B728 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */,
+				1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */,
+				1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */,
+				1134A4321D92528E0030B728 /* PGApp.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
+				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,
+				1134A43E1D926D100030B728 /* PGHomeController.m in Sources */,
+				1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +419,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = PGFrame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pangu.PGFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +432,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = PGFrame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pangu.PGFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +460,7 @@
 				1134A3F61D9225C00030B728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

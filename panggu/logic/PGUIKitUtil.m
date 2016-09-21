@@ -10,4 +10,13 @@
 
 @implementation PGUIKitUtil
 
++ (UIFont *)systemFontOfSize:(CGFloat)size
+{
+    UIFont *font = [UIFont fontWithName:@"PingFang SC" size:size];
+    if(!font)
+    {
+        font = [UIFont systemFontOfSize:size];
+    }
+    return font;
+}
 @end

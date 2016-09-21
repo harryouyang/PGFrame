@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "PGNavigationController.h"
+#import "PGHomeController.h"
+#import "PGApp.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +17,24 @@
 
 @implementation AppDelegate
 
+- (void)showMainView:(UIWindow *)window
+{
+    PGHomeController *home = [[PGHomeController alloc] init];
+    PGNavigationController *homeNav = [[PGNavigationController alloc] initWithRootViewController:home];
+    homeNav.tempRootController = home;
+    window.rootViewController = homeNav;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self showMainView:self.window];
+    [PGApp configAppNavBar];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

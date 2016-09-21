@@ -6,8 +6,10 @@
 //  Copyright © 2016年 pangu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PGUIKitUtil : NSObject
+
++ (UIFont *)systemFontOfSize:(CGFloat)size;
 
 @end
