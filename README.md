@@ -2,6 +2,10 @@
 简单App框架
 
 ## 文件结构
+>> pangu
+>>> category
+>>> ui
+>>>> tableCell
 
 ## 功能使用说明
 ### 消息弹出提示
