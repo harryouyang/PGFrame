@@ -20,6 +20,12 @@
 		1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4371D9266B70030B728 /* UIImage+PGImage.m */; };
 		1134A43E1D926D100030B728 /* PGHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A43D1D926D100030B728 /* PGHomeController.m */; };
 		1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4401D9271770030B728 /* PGUIKitUtil.m */; };
+		1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4441D9285C10030B728 /* PGWaitingView.m */; };
+		1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4471D9286180030B728 /* PGCustomWaitingView.m */; };
+		1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A44A1D92863F0030B728 /* PGRotaionWaitingView.m */; };
+		1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44C1D928FE50030B728 /* icon_return@3x.png */; };
+		1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44D1D928FE50030B728 /* loading_logo@3x.png */; };
+		1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44E1D928FE50030B728 /* loading_round@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,15 @@
 		1134A43D1D926D100030B728 /* PGHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGHomeController.m; sourceTree = "<group>"; };
 		1134A43F1D9271770030B728 /* PGUIKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGUIKitUtil.h; sourceTree = "<group>"; };
 		1134A4401D9271770030B728 /* PGUIKitUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGUIKitUtil.m; sourceTree = "<group>"; };
+		1134A4431D9285C10030B728 /* PGWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWaitingView.h; sourceTree = "<group>"; };
+		1134A4441D9285C10030B728 /* PGWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWaitingView.m; sourceTree = "<group>"; };
+		1134A4461D9286180030B728 /* PGCustomWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCustomWaitingView.h; sourceTree = "<group>"; };
+		1134A4471D9286180030B728 /* PGCustomWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCustomWaitingView.m; sourceTree = "<group>"; };
+		1134A4491D92863F0030B728 /* PGRotaionWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRotaionWaitingView.h; sourceTree = "<group>"; };
+		1134A44A1D92863F0030B728 /* PGRotaionWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRotaionWaitingView.m; sourceTree = "<group>"; };
+		1134A44C1D928FE50030B728 /* icon_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_return@3x.png"; sourceTree = "<group>"; };
+		1134A44D1D928FE50030B728 /* loading_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_logo@3x.png"; sourceTree = "<group>"; };
+		1134A44E1D928FE50030B728 /* loading_round@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_round@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +157,9 @@
 		1134A41E1D922C0A0030B728 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				1134A44C1D928FE50030B728 /* icon_return@3x.png */,
+				1134A44D1D928FE50030B728 /* loading_logo@3x.png */,
+				1134A44E1D928FE50030B728 /* loading_round@3x.png */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -176,6 +194,7 @@
 		1134A4221D922C0A0030B728 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				1134A4421D9285910030B728 /* waitingView */,
 				1134A42C1D9235AB0030B728 /* category */,
 				1134A4231D922C0A0030B728 /* tableCell */,
 			);
@@ -228,6 +247,19 @@
 			children = (
 			);
 			path = setting;
+			sourceTree = "<group>";
+		};
+		1134A4421D9285910030B728 /* waitingView */ = {
+			isa = PBXGroup;
+			children = (
+				1134A4431D9285C10030B728 /* PGWaitingView.h */,
+				1134A4441D9285C10030B728 /* PGWaitingView.m */,
+				1134A4461D9286180030B728 /* PGCustomWaitingView.h */,
+				1134A4471D9286180030B728 /* PGCustomWaitingView.m */,
+				1134A4491D92863F0030B728 /* PGRotaionWaitingView.h */,
+				1134A44A1D92863F0030B728 /* PGRotaionWaitingView.m */,
+			);
+			path = waitingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,9 +319,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */,
+				1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */,
 				1134A3F01D9225C00030B728 /* LaunchScreen.storyboard in Resources */,
 				1134A3ED1D9225C00030B728 /* Assets.xcassets in Resources */,
 				1134A3EB1D9225C00030B728 /* Main.storyboard in Resources */,
+				1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,9 +339,12 @@
 				1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */,
 				1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */,
 				1134A4321D92528E0030B728 /* PGApp.m in Sources */,
+				1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
 				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
+				1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */,
+				1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,
 				1134A43E1D926D100030B728 /* PGHomeController.m in Sources */,
 				1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */,

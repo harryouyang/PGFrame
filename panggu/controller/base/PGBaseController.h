@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ 等待视图的样式类型
+ */
+typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
+{
+    EWaitingViewStyle_Custom = 0,
+    EWaitingViewStyle_Rotation
+};
+
 @interface PGBaseController : UIViewController
 
 /* 
@@ -54,7 +63,8 @@
 
 #pragma mark waitting Indicator
 - (void)showWaitingView:(NSString *)text;
-- (void)endWaitingView;
+- (void)showWaitingView:(NSString *)text viewStyle:(PGWaitingViewStyle)style;
+- (void)hideWaitingView;
 
 @end
 

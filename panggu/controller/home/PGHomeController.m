@@ -24,8 +24,14 @@
 
 - (void)clicked:(UIButton *)button
 {
-    PGHomeController *controller = [[PGHomeController alloc] init];
-    [self pushNewViewController:controller];
+//    PGHomeController *controller = [[PGHomeController alloc] init];
+//    [self pushNewViewController:controller];
+    
+    [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self hideWaitingView];
+    });
 }
 
 @end

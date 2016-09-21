@@ -10,9 +10,14 @@
 #import "PGMacroDefHeader.h"
 #import "UIAlertView+action.h"
 #import "PGUIKitUtil.h"
+#import "PGCustomWaitingView.h"
+#import "PGRotaionWaitingView.h"
 
 @interface PGBaseController ()
 @property(nonatomic, strong)NSMutableDictionary *allErrorView;
+
+@property(nonatomic, strong)PGWaitingView *waitingView;
+@property(nonatomic, assign)BOOL bShowProgressView;
 @end
 
 @implementation PGBaseController
@@ -220,11 +225,36 @@
 
 #pragma mark waitting Indicator
 - (void)showWaitingView:(NSString *)text {
-    
+    [self showWaitingView:text viewStyle:EWaitingViewStyle_Custom];
 }
 
-- (void)endWaitingView {
+- (void)showWaitingView:(NSString *)text viewStyle:(PGWaitingViewStyle)style {
+    if(self.waitingView == nil) {
+        if(style == EWaitingViewStyle_Rotation) {
+            self.waitingView = [[PGRotaionWaitingView alloc] initWithFrame:CGRectMake(0, 0, PGHeightWith1080(280), PGHeightWith1080(280))];
+        } else {
+            self.waitingView = [[PGCustomWaitingView alloc] initBgColor:UIColorFromRGBA(0x858585, 0.8) apla:1.0 font:nil textColor:nil activeColor:[UIColor whiteColor]];
+            self.waitingView.layer.cornerRadius = 5.0;
+        }
+    }
     
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+    bgView.backgroundColor = [UIColor clearColor];
+    [bgView addSubview:self.waitingView];
+    
+    [self.view addSubview:bgView];
+    
+    self.bShowProgressView = YES;
+    
+    [self.waitingView showText:text];
+    self.waitingView.center = self.waitingView.superview.center;
+}
+
+- (void)hideWaitingView {
+    if(self.waitingView) {
+        [self.waitingView.superview removeFromSuperview];
+        self.bShowProgressView = NO;
+    }
 }
 
 @end
