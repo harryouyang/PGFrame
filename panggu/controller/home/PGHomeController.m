@@ -7,6 +7,11 @@
 //
 
 #import "PGHomeController.h"
+#import "PGRequestManager.h"
+
+@interface PGHomeController ()<PGApiDelegate>
+
+@end
 
 @implementation PGHomeController
 
@@ -29,9 +34,26 @@
     
     [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self hideWaitingView];
-    });
+    [PGRequestManager startPostClient:API_TYPE_LOGIN
+                                param:@{@"userName":@"name",@"password":@"123456"}
+                               target:self
+                                  tag:@"login"];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self hideWaitingView];
+//    });
+}
+
+#pragma mark PGApiDelegate
+- (void)dataRequestSuccess:(PGResultObject *)resultObj
+{
+    [self hideWaitingView];
+}
+
+- (void)dataRequestFailed:(PGResultObject *)resultObj
+{
+    [self hideWaitingView];
+    [self showMsg:resultObj.szErrorDes];
 }
 
 @end

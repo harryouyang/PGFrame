@@ -26,6 +26,13 @@
 		1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44C1D928FE50030B728 /* icon_return@3x.png */; };
 		1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44D1D928FE50030B728 /* loading_logo@3x.png */; };
 		1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44E1D928FE50030B728 /* loading_round@3x.png */; };
+		11A1C5431D9372C40069E490 /* PGHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5421D9372C40069E490 /* PGHttpClient.m */; };
+		11A1C5461D9375D40069E490 /* PGAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5451D9375D40069E490 /* PGAPI.m */; };
+		11A1C5491D9375FF0069E490 /* PGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5481D9375FF0069E490 /* PGRequestManager.m */; };
+		11A1C54C1D937C200069E490 /* PGResultObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C54B1D937C200069E490 /* PGResultObject.m */; };
+		11A1C54F1D937E900069E490 /* PGEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C54E1D937E900069E490 /* PGEncrypt.m */; };
+		11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5511D9380B40069E490 /* PGDataParseManager.m */; };
+		11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5541D938A240069E490 /* NSDictionary+parse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +71,20 @@
 		1134A44C1D928FE50030B728 /* icon_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_return@3x.png"; sourceTree = "<group>"; };
 		1134A44D1D928FE50030B728 /* loading_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_logo@3x.png"; sourceTree = "<group>"; };
 		1134A44E1D928FE50030B728 /* loading_round@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_round@3x.png"; sourceTree = "<group>"; };
+		11A1C5411D9372C40069E490 /* PGHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGHttpClient.h; sourceTree = "<group>"; };
+		11A1C5421D9372C40069E490 /* PGHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGHttpClient.m; sourceTree = "<group>"; };
+		11A1C5441D9375D40069E490 /* PGAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAPI.h; sourceTree = "<group>"; };
+		11A1C5451D9375D40069E490 /* PGAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAPI.m; sourceTree = "<group>"; };
+		11A1C5471D9375FF0069E490 /* PGRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRequestManager.h; sourceTree = "<group>"; };
+		11A1C5481D9375FF0069E490 /* PGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRequestManager.m; sourceTree = "<group>"; };
+		11A1C54A1D937C200069E490 /* PGResultObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGResultObject.h; sourceTree = "<group>"; };
+		11A1C54B1D937C200069E490 /* PGResultObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGResultObject.m; sourceTree = "<group>"; };
+		11A1C54D1D937E900069E490 /* PGEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEncrypt.h; sourceTree = "<group>"; };
+		11A1C54E1D937E900069E490 /* PGEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGEncrypt.m; sourceTree = "<group>"; };
+		11A1C5501D9380B40069E490 /* PGDataParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDataParseManager.h; sourceTree = "<group>"; };
+		11A1C5511D9380B40069E490 /* PGDataParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDataParseManager.m; sourceTree = "<group>"; };
+		11A1C5531D938A240069E490 /* NSDictionary+parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+parse.h"; sourceTree = "<group>"; };
+		11A1C5541D938A240069E490 /* NSDictionary+parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+parse.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +244,8 @@
 			children = (
 				1134A4361D9266B70030B728 /* UIImage+PGImage.h */,
 				1134A4371D9266B70030B728 /* UIImage+PGImage.m */,
+				11A1C5531D938A240069E490 /* NSDictionary+parse.h */,
+				11A1C5541D938A240069E490 /* NSDictionary+parse.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -266,6 +289,18 @@
 		11A1C5401D93723C0069E490 /* netRequest */ = {
 			isa = PBXGroup;
 			children = (
+				11A1C5411D9372C40069E490 /* PGHttpClient.h */,
+				11A1C5421D9372C40069E490 /* PGHttpClient.m */,
+				11A1C5441D9375D40069E490 /* PGAPI.h */,
+				11A1C5451D9375D40069E490 /* PGAPI.m */,
+				11A1C5471D9375FF0069E490 /* PGRequestManager.h */,
+				11A1C5481D9375FF0069E490 /* PGRequestManager.m */,
+				11A1C54A1D937C200069E490 /* PGResultObject.h */,
+				11A1C54B1D937C200069E490 /* PGResultObject.m */,
+				11A1C54D1D937E900069E490 /* PGEncrypt.h */,
+				11A1C54E1D937E900069E490 /* PGEncrypt.m */,
+				11A1C5501D9380B40069E490 /* PGDataParseManager.h */,
+				11A1C5511D9380B40069E490 /* PGDataParseManager.m */,
 			);
 			path = netRequest;
 			sourceTree = "<group>";
@@ -343,14 +378,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A1C54F1D937E900069E490 /* PGEncrypt.m in Sources */,
+				11A1C5461D9375D40069E490 /* PGAPI.m in Sources */,
 				1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */,
+				11A1C5431D9372C40069E490 /* PGHttpClient.m in Sources */,
 				1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */,
 				1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */,
 				1134A4321D92528E0030B728 /* PGApp.m in Sources */,
 				1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */,
+				11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */,
+				11A1C54C1D937C200069E490 /* PGResultObject.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
+				11A1C5491D9375FF0069E490 /* PGRequestManager.m in Sources */,
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
 				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
+				11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */,
 				1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */,
 				1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,
