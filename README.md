@@ -9,7 +9,32 @@
 
 ## 功能使用说明
 ### 消息弹出提示
-
+```object-c
+[self showMsg:@"消息内容"];
+```
+```object-c
+[self showAskAlertTitle:@"标题" message:@"提示的内容" tag:0 action:^(NSInteger alertTag, NSInteger actionIndex) {
+        //事件响应
+        if(actionIndex == 0) {
+            
+        } else if(actionIndex == 1) {
+            
+        }
+    } cancelActionTitle:@"取消" otherActionsTitles:@"确定",nil];
+```
+### 错误提示页面
+```object-c
+//显示
+[self showDataLoadErrorView];
+//隐藏
+[self hideDataLoadErrorView];
+```
+```object-c
+//显示
+[self showNoDataView];
+//隐藏
+[self hideNoDataRecordView];
+```
 ### 等待框
   可以通过自定义样式，目前只有两种。可以继承PGWaitingView扩展个性化的等待视图。
 
@@ -71,3 +96,11 @@
     [self showMsg:resultObj.szErrorDes];
 }
 ```
+### 数据执久化
+### 请求策略
+### 遮罩层设计
+### 支付模块
+### 消息推送
+### 热修复
+### H5交互
+
