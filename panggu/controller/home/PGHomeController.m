@@ -8,6 +8,7 @@
 
 #import "PGHomeController.h"
 #import "PGRequestManager.h"
+#import "PGBaseController+errorView.h"
 
 @interface PGHomeController ()<PGApiDelegate>
 
@@ -32,16 +33,35 @@
 //    PGHomeController *controller = [[PGHomeController alloc] init];
 //    [self pushNewViewController:controller];
     
-    [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
+//    [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
+//    
+//    [PGRequestManager startPostClient:API_TYPE_LOGIN
+//                                param:@{@"userName":@"name",@"password":@"123456"}
+//                               target:self
+//                                  tag:@"login"];
     
-    [PGRequestManager startPostClient:API_TYPE_LOGIN
-                                param:@{@"userName":@"name",@"password":@"123456"}
-                               target:self
-                                  tag:@"login"];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self hideWaitingView];
-//    });
+//    [self showDataLoadErrorView];
+    
+//    [self showMsg:@"消息内容"];
+    
+    [self showAskAlertTitle:@"标题" message:@"提示的内容" tag:0 action:^(NSInteger alertTag, NSInteger actionIndex) {
+        //事件响应
+        if(actionIndex == 0) {
+            
+        } else if(actionIndex == 1) {
+            
+        }
+    } cancelActionTitle:@"取消" otherActionsTitles:@"确定",nil];
+}
+
+- (void)reloadData
+{
+    [self showNoDataView];
+    [self hideDataLoadErrorView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self hideNoDataRecordView];
+    });
 }
 
 #pragma mark PGApiDelegate

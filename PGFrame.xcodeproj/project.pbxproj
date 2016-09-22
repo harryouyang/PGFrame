@@ -33,6 +33,9 @@
 		11A1C54F1D937E900069E490 /* PGEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C54E1D937E900069E490 /* PGEncrypt.m */; };
 		11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5511D9380B40069E490 /* PGDataParseManager.m */; };
 		11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5541D938A240069E490 /* NSDictionary+parse.m */; };
+		11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5571D93B35D0069E490 /* PGBaseController+errorView.m */; };
+		11A1C55B1D93C3D90069E490 /* data_no@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A1C5591D93C3D90069E490 /* data_no@3x.png */; };
+		11A1C55C1D93C3D90069E490 /* no_net@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A1C55A1D93C3D90069E490 /* no_net@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +88,10 @@
 		11A1C5511D9380B40069E490 /* PGDataParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDataParseManager.m; sourceTree = "<group>"; };
 		11A1C5531D938A240069E490 /* NSDictionary+parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+parse.h"; sourceTree = "<group>"; };
 		11A1C5541D938A240069E490 /* NSDictionary+parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+parse.m"; sourceTree = "<group>"; };
+		11A1C5561D93B35D0069E490 /* PGBaseController+errorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGBaseController+errorView.h"; sourceTree = "<group>"; };
+		11A1C5571D93B35D0069E490 /* PGBaseController+errorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGBaseController+errorView.m"; sourceTree = "<group>"; };
+		11A1C5591D93C3D90069E490 /* data_no@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data_no@3x.png"; sourceTree = "<group>"; };
+		11A1C55A1D93C3D90069E490 /* no_net@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_net@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +178,8 @@
 				1134A4271D922C7A0030B728 /* PGBaseController.m */,
 				1134A4291D922EA50030B728 /* PGNavigationController.h */,
 				1134A42A1D922EA50030B728 /* PGNavigationController.m */,
+				11A1C5561D93B35D0069E490 /* PGBaseController+errorView.h */,
+				11A1C5571D93B35D0069E490 /* PGBaseController+errorView.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -178,6 +187,8 @@
 		1134A41E1D922C0A0030B728 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				11A1C5591D93C3D90069E490 /* data_no@3x.png */,
+				11A1C55A1D93C3D90069E490 /* no_net@3x.png */,
 				1134A44C1D928FE50030B728 /* icon_return@3x.png */,
 				1134A44D1D928FE50030B728 /* loading_logo@3x.png */,
 				1134A44E1D928FE50030B728 /* loading_round@3x.png */,
@@ -367,6 +378,8 @@
 				1134A3F01D9225C00030B728 /* LaunchScreen.storyboard in Resources */,
 				1134A3ED1D9225C00030B728 /* Assets.xcassets in Resources */,
 				1134A3EB1D9225C00030B728 /* Main.storyboard in Resources */,
+				11A1C55B1D93C3D90069E490 /* data_no@3x.png in Resources */,
+				11A1C55C1D93C3D90069E490 /* no_net@3x.png in Resources */,
 				1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +406,7 @@
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
 				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
 				11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */,
+				11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */,
 				1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */,
 				1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,

@@ -27,9 +27,42 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
  controller中view的高度
  */
 @property(nonatomic, assign, readonly)CGFloat viewHeight;
+/*
+ controller中View的高度 不包括Navbar
+ */
+@property(nonatomic, assign, readonly)CGFloat viewValidHeight;
+/*
+ navbar 最大的Y值
+ */
+@property(nonatomic, assign, readonly)CGFloat nNavMaxY;
 
 - (UINavigationBar *)navBar;
 - (void)setNavTitleAttributes:(NSDictionary *)dicAttributes;
+
+/*
+ 初始化相应的数据
+ */
+- (void)createInitData;
+
+/*
+ 创建相应的子视图
+ */
+- (void)createSubViews;
+
+/*
+ 重新加载
+ */
+- (void)reloadData;
+
+/*
+ 加载网络接口数据
+ */
+- (void)getDataFromNet;
+
+/*
+ 释放内存空间
+ */
+- (void)freeMemory;
 
 @end
 

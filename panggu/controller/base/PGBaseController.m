@@ -29,6 +29,9 @@
     
     [self setNavTitleAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
                                   NSFontAttributeName:[PGUIKitUtil systemFontOfSize:17.0]}];
+    
+    [self createInitData];
+    [self createSubViews];
 }
 
 - (NSMutableDictionary *)allErrorView {
@@ -44,6 +47,31 @@
 
 - (CGFloat)viewHeight {
     return self.view.frame.size.height;
+}
+
+- (CGFloat)viewValidHeight
+{
+    if(self.navigationController != nil &&
+       !self.navigationController.navigationBar.hidden &&
+       !self.navigationController.navigationBar.translucent)
+    {
+        return [UIApplication sharedApplication].keyWindow.frame.size.height-CGRectGetMaxY([self navBarFrame]);
+    }
+    else
+    {
+        return [UIApplication sharedApplication].keyWindow.frame.size.height;
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    [self freeMemory];
 }
 
 #pragma mark -
@@ -80,7 +108,56 @@
     }
 }
 
+- (CGRect)navBarFrame
+{
+    CGRect rect = CGRectZero;
+    if(self.navigationController != nil && !self.navigationController.navigationBar.hidden)
+    {
+        rect = self.navigationController.navigationBar.frame;
+    }
+    
+    return rect;
+}
+
+- (CGFloat)nNavMaxY
+{
+    if(self.navigationController != nil &&
+       !self.navigationController.navigationBar.hidden &&
+       !self.navigationController.navigationBar.translucent)
+    {
+        return 0.0;
+    }
+    else
+    {
+        return CGRectGetMaxY([self navBarFrame]);
+    }
+}
+
+#pragma mark -
+- (void)createInitData
+{
+    
+}
+
+- (void)freeMemory
+{
+}
+
+- (void)createSubViews
+{
+}
+
+- (void)reloadData
+{
+    [self getDataFromNet];
+}
+
+- (void)getDataFromNet
+{
+}
+
 @end
+
 
 /*
  viewController推进推出的简易操作
