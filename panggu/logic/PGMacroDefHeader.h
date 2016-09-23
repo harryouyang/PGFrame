@@ -53,6 +53,10 @@
  blue:((float)(rgbValue & 0x0000FF))/255.0 \
  alpha:alphaValue]
 
+//沙箱路径
+#define kPathTemp       NSTemporaryDirectory()
+#define kPathDocument   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define kPathCache      [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 //判断当前的iPhone设备/系统版本
 //判断是否为iPhone

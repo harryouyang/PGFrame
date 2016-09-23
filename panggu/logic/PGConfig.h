@@ -9,6 +9,7 @@
 #ifndef PGConfig_h
 #define PGConfig_h
 
+/////////////////////////////////////////////////////////////////
 //测试环境
 #define USE_TEST            1
 //预上线环境
@@ -30,6 +31,11 @@
 #define VERSION_MARK                @""
 #endif
 
+/////////////////////////////////////////////////////////////////
+#define PG_IMAGE_PATH               @"Image"
+#define PG_CACHES_DATA_PATH         @"CachesData"
+
+/////////////////////////////////////////////////////////////////
 #define Color_For_Cell                      UIColorFromRGB(0x333333)
 #define Color_For_separatorColor            UIColorFromRGB(0xe2e2e2)
 #define Color_For_ControllerBackColor       UIColorFromRGB(0xf0f1f2)

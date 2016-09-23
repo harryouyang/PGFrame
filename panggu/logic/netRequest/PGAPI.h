@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSUInteger, PGApiType) {
     API_TYPE_LOGIN = 1,//登录
     API_TYPE_REGIEST,//注册
+    API_TYPE_PRODUCT_LIST,//产品列表
 };
 
 @protocol PGApiDelegate <NSObject>

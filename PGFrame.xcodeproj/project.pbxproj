@@ -36,6 +36,12 @@
 		11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5571D93B35D0069E490 /* PGBaseController+errorView.m */; };
 		11A1C55B1D93C3D90069E490 /* data_no@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A1C5591D93C3D90069E490 /* data_no@3x.png */; };
 		11A1C55C1D93C3D90069E490 /* no_net@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A1C55A1D93C3D90069E490 /* no_net@3x.png */; };
+		11A1C55F1D93D5310069E490 /* PGContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C55E1D93D5310069E490 /* PGContext.m */; };
+		11A1C5621D93D5B40069E490 /* PGCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5611D93D5B40069E490 /* PGCacheManager.m */; };
+		11A1C5651D93DCB00069E490 /* NSString+encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5641D93DCB00069E490 /* NSString+encrypt.m */; };
+		11A1C5681D93DCC90069E490 /* NSString+json.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C5671D93DCC90069E490 /* NSString+json.m */; };
+		11A1C56B1D93DD200069E490 /* NSString+ruleCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C56A1D93DD200069E490 /* NSString+ruleCheck.m */; };
+		11A1C56E1D93DE8F0069E490 /* PGBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A1C56D1D93DE8F0069E490 /* PGBaseObj.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +98,18 @@
 		11A1C5571D93B35D0069E490 /* PGBaseController+errorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGBaseController+errorView.m"; sourceTree = "<group>"; };
 		11A1C5591D93C3D90069E490 /* data_no@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data_no@3x.png"; sourceTree = "<group>"; };
 		11A1C55A1D93C3D90069E490 /* no_net@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_net@3x.png"; sourceTree = "<group>"; };
+		11A1C55D1D93D5310069E490 /* PGContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGContext.h; sourceTree = "<group>"; };
+		11A1C55E1D93D5310069E490 /* PGContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGContext.m; sourceTree = "<group>"; };
+		11A1C5601D93D5B40069E490 /* PGCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCacheManager.h; sourceTree = "<group>"; };
+		11A1C5611D93D5B40069E490 /* PGCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCacheManager.m; sourceTree = "<group>"; };
+		11A1C5631D93DCB00069E490 /* NSString+encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encrypt.h"; sourceTree = "<group>"; };
+		11A1C5641D93DCB00069E490 /* NSString+encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+encrypt.m"; sourceTree = "<group>"; };
+		11A1C5661D93DCC90069E490 /* NSString+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+json.h"; sourceTree = "<group>"; };
+		11A1C5671D93DCC90069E490 /* NSString+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+json.m"; sourceTree = "<group>"; };
+		11A1C5691D93DD200069E490 /* NSString+ruleCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ruleCheck.h"; sourceTree = "<group>"; };
+		11A1C56A1D93DD200069E490 /* NSString+ruleCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ruleCheck.m"; sourceTree = "<group>"; };
+		11A1C56C1D93DE8F0069E490 /* PGBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseObj.h; sourceTree = "<group>"; };
+		11A1C56D1D93DE8F0069E490 /* PGBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseObj.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +231,10 @@
 				1134A4341D9254A10030B728 /* PGConfig.h */,
 				1134A43F1D9271770030B728 /* PGUIKitUtil.h */,
 				1134A4401D9271770030B728 /* PGUIKitUtil.m */,
+				11A1C55D1D93D5310069E490 /* PGContext.h */,
+				11A1C55E1D93D5310069E490 /* PGContext.m */,
+				11A1C5601D93D5B40069E490 /* PGCacheManager.h */,
+				11A1C5611D93D5B40069E490 /* PGCacheManager.m */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -220,6 +242,8 @@
 		1134A4211D922C0A0030B728 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				11A1C56C1D93DE8F0069E490 /* PGBaseObj.h */,
+				11A1C56D1D93DE8F0069E490 /* PGBaseObj.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -257,6 +281,12 @@
 				1134A4371D9266B70030B728 /* UIImage+PGImage.m */,
 				11A1C5531D938A240069E490 /* NSDictionary+parse.h */,
 				11A1C5541D938A240069E490 /* NSDictionary+parse.m */,
+				11A1C5631D93DCB00069E490 /* NSString+encrypt.h */,
+				11A1C5641D93DCB00069E490 /* NSString+encrypt.m */,
+				11A1C5661D93DCC90069E490 /* NSString+json.h */,
+				11A1C5671D93DCC90069E490 /* NSString+json.m */,
+				11A1C5691D93DD200069E490 /* NSString+ruleCheck.h */,
+				11A1C56A1D93DD200069E490 /* NSString+ruleCheck.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -391,12 +421,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A1C56E1D93DE8F0069E490 /* PGBaseObj.m in Sources */,
+				11A1C5681D93DCC90069E490 /* NSString+json.m in Sources */,
 				11A1C54F1D937E900069E490 /* PGEncrypt.m in Sources */,
 				11A1C5461D9375D40069E490 /* PGAPI.m in Sources */,
 				1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */,
 				11A1C5431D9372C40069E490 /* PGHttpClient.m in Sources */,
 				1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */,
+				11A1C5651D93DCB00069E490 /* NSString+encrypt.m in Sources */,
 				1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */,
+				11A1C56B1D93DD200069E490 /* NSString+ruleCheck.m in Sources */,
 				1134A4321D92528E0030B728 /* PGApp.m in Sources */,
 				1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */,
 				11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */,
@@ -411,6 +445,8 @@
 				1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,
 				1134A43E1D926D100030B728 /* PGHomeController.m in Sources */,
+				11A1C5621D93D5B40069E490 /* PGCacheManager.m in Sources */,
+				11A1C55F1D93D5310069E490 /* PGContext.m in Sources */,
 				1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

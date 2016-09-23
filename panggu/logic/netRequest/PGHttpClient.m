@@ -50,25 +50,8 @@
         
         NSString *szStr =  [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
         
-        NSDictionary *dicInfo = [NSJSONSerialization JSONObjectWithData:[szStr dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-        
         PGHttpClient *strongSelf = weakSelf;
-        PGResultObject *resultObj = [strongSelf parseDataWithResponseObject:dicInfo];
-        
-        if(resultObj.nCode == CODE_NO_ERROR)
-        {
-            if(strongSelf.apiDelegate)
-            {
-                [strongSelf.apiDelegate ];
-            }
-        }
-        else
-        {
-            if(strongSelf.apiDelegate)
-            {
-                [strongSelf.apiDelegate ];
-            }
-        }
+        [strongSelf parseData:szStr];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
@@ -91,9 +74,9 @@
         
         PGHttpClient *strongSelf = weakSelf;
         
-        if(strongSelf.apiDelegate)
+        if(strongSelf.delegate)
         {
-            [strongSelf.apiDelegate ];
+            [strongSelf.delegate dataRequestFailed:resultObj client:strongSelf];
         }
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -101,6 +84,28 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
      */
+}
+
+- (void)parseData:(NSString *)szString
+{
+    NSDictionary *dicInfo = [NSJSONSerialization JSONObjectWithData:[szString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    
+    PGResultObject *resultObj = [self parseDataWithResponseObject:dicInfo];
+    
+    if(resultObj.nCode == 0)
+    {
+        if(self.delegate)
+        {
+            [self.delegate dataRequestSuccess:resultObj client:self];
+        }
+    }
+    else
+    {
+        if(self.delegate)
+        {
+            [self.delegate dataRequestFailed:resultObj client:self];
+        }
+    }
 }
 
 - (void)cancelRequest

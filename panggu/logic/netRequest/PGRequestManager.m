@@ -8,9 +8,19 @@
 
 #import "PGRequestManager.h"
 #import "PGHttpClient.h"
+#import "NSString+json.h"
+#import "NSString+encrypt.h"
+#import "PGCacheManager.h"
 
-@interface PGRequestManager ()<PGApiDelegate>
+@interface PGRequestManager ()<PGHttpClientDelegate>
+/*
+ 所有的请求
+ */
 @property(atomic, strong)NSMutableDictionary *allClient;
+/*
+ api请求参数对应的时间戳
+ */
+@property(atomic, strong)NSMutableDictionary *allApiKeyTime;
 @end
 
 static PGRequestManager *s_requestManager = nil;
@@ -28,6 +38,7 @@ static PGRequestManager *s_requestManager = nil;
     dispatch_once(&onceToken, ^{
         s_requestManager = [[PGRequestManager alloc] init];
         s_requestManager.allClient = [[NSMutableDictionary alloc] init];
+        s_requestManager.allApiKeyTime = [[NSMutableDictionary alloc] init];
     });
     
     return s_requestManager;
@@ -98,11 +109,27 @@ static PGRequestManager *s_requestManager = nil;
     [[PGRequestManager shareInstance] startClient:@"GET" type:type param:param target:target tag:tag];
 }
 
-- (void)startClient:(NSString *)method type:(PGApiType)type param:(NSDictionary *)param target:(id)target tag:(NSString *)tag
+- (void)startClient:(NSString *)method type:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target tag:(NSString *)tag
 {
     PGHttpClient *client = [[PGHttpClient alloc] initWithType:type requestParam:param];
     client.requestMethod = method;
     client.apiDelegate = target;
+    client.delegate = self;
+    
+    //需要缓存的接口才做缓存处理
+    if([self bEnableStrategy:type])
+    {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:@(type).stringValue forKey:@"apiType"];
+        [dic addEntriesFromDictionary:param];
+        NSString *key = [NSString MD5Encrypt:[NSString jsonStringWithDictionary:dic]];
+        NSString *dataString = [self cacheSringWithKey:key];
+        if(dataString)
+        {
+            [client parseData:dataString];
+            return;
+        }
+    }
     
     if(target != nil)
         [self addClient:client target:target tag:tag];
@@ -112,13 +139,60 @@ static PGRequestManager *s_requestManager = nil;
     [client startRequest];
 }
 
-#pragma mark -
-- (void)dataRequestSuccess:(PGResultObject *)resultObj
+#pragma mark - PGHttpClientDelegate
+- (void)dataRequestSuccess:(PGResultObject *)resultObj client:(PGHttpClient *)client
 {
+    if(client.apiDelegate)
+    {
+        [client.apiDelegate dataRequestSuccess:resultObj];
+    }
 }
 
-- (void)dataRequestFailed:(PGResultObject *)resultObj
+- (void)dataRequestFailed:(PGResultObject *)resultObj client:(PGHttpClient *)client
 {
+    if(client.apiDelegate)
+    {
+        [client.apiDelegate dataRequestFailed:resultObj];
+    }
+}
+
+#pragma mark - API请求策略逻辑
+- (BOOL)bEnableStrategy:(PGApiType)type
+{
+    BOOL bEnable = YES;
+    switch(type)
+    {
+        case API_TYPE_LOGIN:
+        {
+            bEnable = NO;
+            break;
+        }
+        default:
+            break;
+    }
+    return bEnable;
+}
+
+- (NSString *)cacheSringWithKey:(NSString *)key
+{
+    NSString *dataString = nil;
+    
+    NSNumber *timeNumber = [self.allApiKeyTime objectForKey:key];
+    if(timeNumber)
+    {
+        double nTime = [NSDate date].timeIntervalSince1970 - [timeNumber doubleValue];
+        //时间间隔大于120秒
+        if(nTime < 120)
+        {
+            dataString = (NSString *)[PGCacheManager getApiCacheStringWithKey:key];
+        }
+        else
+        {
+            [self.allApiKeyTime setObject:[NSNumber numberWithDouble:[NSDate date].timeIntervalSince1970] forKey:key];
+        }
+    }
+    
+    return dataString;
 }
 
 @end
