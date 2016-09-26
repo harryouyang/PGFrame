@@ -62,14 +62,10 @@ static PGRequestManager *s_requestManager = nil;
     [self.allClient setObject:client forKey:szTag];
 }
 
-+ (void)cancelClientWithTarget:(id)target tag:(NSString *)tag
++ (void)cancelClientWithTarget:(id)target type:(PGApiType)type
 {
     NSString *szClassName = NSStringFromClass([target class]);
-    NSString *szTag = szClassName;
-    if(tag != nil && tag.length > 0)
-    {
-        szTag = [NSString stringWithFormat:@"%@_%@",szClassName, tag];
-    }
+    NSString *szTag = [NSString stringWithFormat:@"%@_%@",szClassName, @(type).stringValue];
     
     [[PGRequestManager shareInstance] cancelClient:szTag];
 }
@@ -99,22 +95,23 @@ static PGRequestManager *s_requestManager = nil;
 }
 
 //普通接口请求
-+ (void)startPostClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target tag:(NSString *)tag;
++ (void)startPostClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam
 {
-    [[PGRequestManager shareInstance] startClient:@"POST" type:type param:param target:target tag:tag];
+    [[PGRequestManager shareInstance] startClient:@"POST" type:type param:param target:target extendParam:extendParam];
 }
 
-+ (void)startGetClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target tag:(NSString *)tag
++ (void)startGetClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam
 {
-    [[PGRequestManager shareInstance] startClient:@"GET" type:type param:param target:target tag:tag];
+    [[PGRequestManager shareInstance] startClient:@"GET" type:type param:param target:target extendParam:extendParam];
 }
 
-- (void)startClient:(NSString *)method type:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target tag:(NSString *)tag
+- (void)startClient:(NSString *)method type:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam
 {
     PGHttpClient *client = [[PGHttpClient alloc] initWithType:type requestParam:param];
     client.requestMethod = method;
     client.apiDelegate = target;
     client.delegate = self;
+    client.extendParam = extendParam;
     
     //需要缓存的接口才做缓存处理
     if([self bEnableStrategy:type])
@@ -132,9 +129,9 @@ static PGRequestManager *s_requestManager = nil;
     }
     
     if(target != nil)
-        [self addClient:client target:target tag:tag];
+        [self addClient:client target:target tag:@(type).stringValue];
     else
-        [self addClient:client target:self tag:tag];
+        [self addClient:client target:self tag:@(type).stringValue];
     
     [client startRequest];
 }
@@ -144,7 +141,7 @@ static PGRequestManager *s_requestManager = nil;
 {
     if(client.apiDelegate)
     {
-        [client.apiDelegate dataRequestSuccess:resultObj];
+        [client.apiDelegate dataRequestFinish:resultObj apiType:client.apiType];
     }
 }
 
@@ -152,7 +149,7 @@ static PGRequestManager *s_requestManager = nil;
 {
     if(client.apiDelegate)
     {
-        [client.apiDelegate dataRequestFailed:resultObj];
+        [client.apiDelegate dataRequestFinish:resultObj apiType:client.apiType];
     }
 }
 

@@ -74,6 +74,7 @@
         
         PGHttpClient *strongSelf = weakSelf;
         
+        resultObj.extendParam = strongSelf.extendParam;
         if(strongSelf.delegate)
         {
             [strongSelf.delegate dataRequestFailed:resultObj client:strongSelf];
@@ -119,6 +120,7 @@
 - (id)parseDataWithResponseObject:(id)responseObject
 {
     PGResultObject *resultObj = [[PGResultObject alloc] init];
+    resultObj.extendParam = self.extendParam;
     if([responseObject isEqual:[NSNull null]] || responseObject == nil)
     {
         resultObj.nCode = -1002;

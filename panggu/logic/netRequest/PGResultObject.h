@@ -21,5 +21,8 @@
  接口返回的数据
  */
 @property(nonatomic, strong)id dataObject;
-
+/*
+ 请求传入的扩展参数，原样返回
+ */
+@property(nonatomic, strong)NSObject *extendParam;
 @end

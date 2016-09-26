@@ -13,12 +13,15 @@ typedef NS_ENUM(NSUInteger, PGApiType) {
     API_TYPE_LOGIN = 1,//登录
     API_TYPE_REGIEST,//注册
     API_TYPE_PRODUCT_LIST,//产品列表
+    API_TYPE_CREATE_ORDER,//创建订单
+    API_TYPE_ORDER_PAY,//订单支付
+    
+    API_TYPE_PATCH,//获取补丁
 };
 
 @protocol PGApiDelegate <NSObject>
 @required
-- (void)dataRequestSuccess:(PGResultObject *)resultObj;
-- (void)dataRequestFailed:(PGResultObject *)resultObj;
+- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType;
 @end
 
 @interface PGAPI : NSObject

@@ -25,6 +25,8 @@
             urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/u/user/regiest"];
             break;
         }
+        default:
+            break;
     }
     return urlString;
 }
@@ -41,6 +43,8 @@
         case API_TYPE_REGIEST: {
             break;
         }
+        default:
+            break;
     }
     return result;
 }
