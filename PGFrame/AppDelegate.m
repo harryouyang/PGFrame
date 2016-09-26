@@ -10,6 +10,8 @@
 #import "PGNavigationController.h"
 #import "PGHomeController.h"
 #import "PGApp.h"
+#import "PGPayManager.h"
+#import "PGPatchManager.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +31,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //热更新
+    [[PGPatchManager shareInstance] startListen];
+    [[PGPatchManager shareInstance] executeLocalHot];
+    [[PGPatchManager shareInstance] getHotData];
+    
+    [[PGPayManager shareInstance] platformInit];
     
     [self showMainView:self.window];
     [PGApp configAppNavBar];
