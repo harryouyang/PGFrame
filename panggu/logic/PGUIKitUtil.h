@@ -8,6 +8,31 @@
 
 #import <UIKit/UIKit.h>
 
+//UI 布局
+#define PGHeightWith640(height) PGHeightC(640.0, height)
+#define PGHeightWith750(height) PGHeightC(750.0, height)
+#define PGHeightWith1080(height) PGHeightC(1080.0, height)
+
+CG_INLINE CGFloat PGHeightC(CGFloat reference, CGFloat height)
+{
+    CGFloat adapterHeight = height;
+    
+    if([[UIScreen mainScreen] currentMode].size.width == 768.0f ||
+       [[UIScreen mainScreen] currentMode].size.width == 1536.0f ||
+       [[UIScreen mainScreen] currentMode].size.width == 2048.0f)
+    {
+        adapterHeight = (height * 640.0 ) / reference;
+    }
+    else
+    {
+        adapterHeight = (height * [[UIScreen mainScreen] currentMode].size.width) / reference;
+    }
+    
+    return ceil(adapterHeight/[UIScreen mainScreen].scale);
+}
+
+////////////////////////////////////////////////
+#pragma mark -
 @interface PGUIKitUtil : NSObject
 
 + (UIFont *)systemFontOfSize:(CGFloat)size;

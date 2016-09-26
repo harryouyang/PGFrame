@@ -7,8 +7,8 @@
 //
 
 #import "PGBaseController.h"
+#import "PGTableBaseController.h"
 
-
-@interface PGHomeController : PGBaseController
+@interface PGHomeController : PGTableBaseController
 
 @end

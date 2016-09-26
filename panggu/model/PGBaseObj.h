@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+parse.h"
 
 @interface PGBaseObj : NSObject
 

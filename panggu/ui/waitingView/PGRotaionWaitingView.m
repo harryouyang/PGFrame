@@ -7,7 +7,7 @@
 //
 
 #import "PGRotaionWaitingView.h"
-#import "PGMacroDefHeader.h"
+#import "PGUIKitUtil.h"
 
 @interface PGRotaionWaitingView ()
 @property(nonatomic, strong)UIImageView *mBgView;

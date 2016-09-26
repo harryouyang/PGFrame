@@ -7,6 +7,7 @@
 */
 
 #import <UIKit/UIKit.h>
+#import "PGUIKitUtil.h"
 
 /*
  等待视图的样式类型

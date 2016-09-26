@@ -36,23 +36,6 @@
 #define SCREEN_SCALE    [UIScreen mainScreen].scale
 #endif
 
-//设置颜色
-#define ColorFromRGB(r,g,b)     [UIColor colorWithRed:(float)(r)/255.0 green:(float)(g)/255.0 blue:(float)(b)/255.0 alpha:1]
-#define ColorFromRGBA(r,g,b,a)  [UIColor colorWithRed:(float)(r)/255.0 green:(float)(g)/255.0 blue:(float)(b)/255.0 alpha:(a)]
-#define UIColorFromRGB(rgbValue) \
-[UIColor \
- colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
- green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
- blue:((float)(rgbValue & 0x0000FF))/255.0 \
- alpha:1.0]
-
-#define UIColorFromRGBA(rgbValue, alphaValue) \
-[UIColor \
- colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
- green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
- blue:((float)(rgbValue & 0x0000FF))/255.0 \
- alpha:alphaValue]
-
 //沙箱路径
 #define kPathTemp       NSTemporaryDirectory()
 #define kPathDocument   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
@@ -80,27 +63,12 @@
 #define IOS7_LATER   ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
 #define IOS6_LATER   ([[[UIDevice currentDevice] systemVersion] compare:@"6.0"] != NSOrderedAscending)
 
-//UI 布局
-#define PGHeightWith640(height) PGHeightC(640.0, height)
-#define PGHeightWith750(height) PGHeightC(750.0, height)
-#define PGHeightWith1080(height) PGHeightC(1080.0, height)
+//设置颜色
+#define ColorFromRGB(r,g,b)     [UIColor colorWithRed:(float)(r)/255.0 green:(float)(g)/255.0 blue:(float)(b)/255.0 alpha:1]
+#define ColorFromRGBA(r,g,b,a)  [UIColor colorWithRed:(float)(r)/255.0 green:(float)(g)/255.0 blue:(float)(b)/255.0 alpha:(a)]
 
-CG_INLINE CGFloat PGHeightC(CGFloat reference, CGFloat height)
-{
-    CGFloat adapterHeight = height;
-    
-    if([[UIScreen mainScreen] currentMode].size.width == 768.0f ||
-       [[UIScreen mainScreen] currentMode].size.width == 1536.0f ||
-       [[UIScreen mainScreen] currentMode].size.width == 2048.0f)
-    {
-        adapterHeight = (height * 640.0 ) / reference;
-    }
-    else
-    {
-        adapterHeight = (height * [[UIScreen mainScreen] currentMode].size.width) / reference;
-    }
-    
-    return ceil(adapterHeight/[UIScreen mainScreen].scale);
-}
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 blue:((float)(rgbValue & 0x0000FF))/255.0 alpha:1.0]
+
+#define UIColorFromRGBA(rgbValue, alphaValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 blue:((float)(rgbValue & 0x0000FF))/255.0 alpha:alphaValue]
 
 #endif /* PGMacroDefHeader_h */
