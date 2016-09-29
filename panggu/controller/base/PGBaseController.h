@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PGUIKitUtil.h"
+#import "UIViewController+message.h"
 
 /*
  等待视图的样式类型
@@ -65,6 +66,27 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
  */
 - (void)freeMemory;
 
+#pragma mark -
+/*
+ 添加navBar标题视图
+ */
+- (void)createNavTitleView:(UIView *)view;
+/*
+ 添加navBar左侧菜单
+ */
+- (void)createNavLeftMenu:(id)left;
+/*
+ 移除navBar右侧菜单
+ */
+- (void)removeNavRightMenu;
+/*
+ 添加navBar右侧菜单
+ */
+- (void)createNavRightMenu:(id)right;
+
+- (void)leftItemClicked:(id)sender;
+- (void)rightItemClicked:(id)sender;
+
 @end
 
 /*
@@ -84,16 +106,6 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 - (void)showErrorView:(UIView *)pView flag:(NSString *)viewFlag errorView:(UIView * (^)(void))errorView;
 - (void)hideErrorView:(UIView *)pView flag:(NSString *)viewFlag;
 - (void)hideErrorView:(NSString *)viewFlag;
-
-#pragma mark message
-- (void)showMsg:(NSString *)szMsg;
-- (void)showTitle:(NSString *)szTitle msg:(NSString *)szMsg;
-- (void)showAskAlertTitle:(NSString *)title
-                  message:(NSString *)message
-                      tag:(NSInteger)tag
-                   action:(void(^)(NSInteger alertTag, NSInteger actionIndex))block
-        cancelActionTitle:(NSString *)cancelTitle
-       otherActionsTitles:(NSString *)actionTitles,...;
 
 #pragma mark waitting Indicator
 - (void)showWaitingView:(NSString *)text;

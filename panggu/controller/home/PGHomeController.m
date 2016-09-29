@@ -13,6 +13,7 @@
 #import "PGMsgAndErrorController.h"
 #import "PGPayController.h"
 #import "PGNetController.h"
+#import "PGH5JsController.h"
 
 @implementation PGHomeController
 
@@ -20,41 +21,8 @@
 {
     [super viewDidLoad];
     self.title = @"首页";
-    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.backgroundColor = [UIColor redColor];
-//    button.frame = CGRectMake(50, 100, 200, 50);
-//    [button addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
 }
 
-//- (void)clicked:(UIButton *)button
-//{
-////    PGHomeController *controller = [[PGHomeController alloc] init];
-////    [self pushNewViewController:controller];
-//    
-////    [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
-////    
-////    [PGRequestManager startPostClient:API_TYPE_LOGIN
-////                                param:@{@"userName":@"name",@"password":@"123456"}
-////                               target:self
-////                                  tag:@"login"];
-//    
-//    
-////    [self showDataLoadErrorView];
-//    
-////    [self showMsg:@"消息内容"];
-//    
-//    [self showAskAlertTitle:@"标题" message:@"提示的内容" tag:0 action:^(NSInteger alertTag, NSInteger actionIndex) {
-//        //事件响应
-//        if(actionIndex == 0) {
-//            
-//        } else if(actionIndex == 1) {
-//            
-//        }
-//    } cancelActionTitle:@"取消" otherActionsTitles:@"确定",nil];
-//}
-//
 - (void)reloadData
 {
     [self showNoDataView];
@@ -86,6 +54,14 @@
     {
         PGPayController *controller = [[PGPayController alloc] init];
         [self pushNewViewController:controller];
+    }
+    else if(indexPath.row == 4)
+    {
+        PGH5JsController *controller = [[PGH5JsController alloc] initWithTitle:@"H5交互实例"];
+        [self pushNewViewController:controller];
+        NSString *url = @"http://192.168.1.206/webv3/index.php#/activity/NativeInteraction";
+//        url = @"http://192.168.1.206/webv3/html/NativeInteraction.html";
+        [controller loadWebRequestWithURLString:url home:url];
     }
 }
 

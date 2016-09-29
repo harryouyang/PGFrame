@@ -8,7 +8,6 @@
 
 #import "PGBaseController.h"
 #import "PGMacroDefHeader.h"
-#import "UIAlertView+action.h"
 #import "PGUIKitUtil.h"
 #import "PGCustomWaitingView.h"
 #import "PGRotaionWaitingView.h"
@@ -156,6 +155,103 @@
 {
 }
 
+#pragma mark -
+- (void)createNavTitleView:(UIView *)view
+{
+    self.navigationItem.titleView = view;
+}
+
+- (void)createNavLeftMenu:(id)left
+{
+    if(left == nil)
+        return;
+    
+    if([left isKindOfClass:[NSString class]])
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, 40, 30);
+        btn.backgroundColor = [UIColor redColor];
+        [btn setTitle:left forState:UIControlStateNormal];
+        btn.titleLabel.font = [PGUIKitUtil systemFontOfSize:14];
+        [btn addTarget:self action:@selector(leftItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.leftBarButtonItem = item;
+    }
+    else if([left isKindOfClass:[UIImage class]])
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, 27, 27);
+        [btn setImage:left forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(leftItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.leftBarButtonItem = item;
+    }
+    else if([left isKindOfClass:[UIView class]])
+    {
+        UIView *view = (UIView *)left;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
+        [btn addSubview:view];
+        [btn addTarget:self action:@selector(leftItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.leftBarButtonItem = item;
+    }
+}
+
+- (void)leftItemClicked:(id)sender
+{
+}
+
+- (void)removeNavRightMenu
+{
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)createNavRightMenu:(id)right
+{
+    if(right == nil)
+        return;
+    
+    if([right isKindOfClass:[NSString class]])
+    {
+        UIFont *font = [PGUIKitUtil systemFontOfSize:14];
+        CGSize size = [(NSString *)right sizeWithAttributes:@{NSFontAttributeName:font}];
+        float btnWidth = MAX(floorf(size.width)+1, 40.0);
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, btnWidth, 30);
+        [btn setTitle:right forState:UIControlStateNormal];
+        btn.titleLabel.font = font;
+        [btn setTitleColor:UIColorFromRGB(0xffffff) forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(rightItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    else if([right isKindOfClass:[UIImage class]])
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, 27, 27);
+        [btn setImage:right forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(rightItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    else if([right isKindOfClass:[UIView class]])
+    {
+        UIView *view = (UIView *)right;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
+        [btn addSubview:view];
+        [btn addTarget:self action:@selector(rightItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+}
+
+- (void)rightItemClicked:(id)sender
+{
+}
+
 @end
 
 
@@ -233,72 +329,6 @@
         [self.allErrorView removeObjectForKey:viewFlag];
     }
 }
-
-#pragma mark message
-- (void)showMsg:(NSString *)szMsg {
-    [self showTitle:nil msg:szMsg];
-}
-
-- (void)showTitle:(NSString *)szTitle msg:(NSString *)szMsg {
-    [self showAskAlertTitle:szTitle message:szMsg tag:0 action:nil cancelActionTitle:@"确定" otherActionsTitles:nil];
-}
-
-- (void)showAskAlertTitle:(NSString *)title
-                  message:(NSString *)message
-                      tag:(NSInteger)tag
-                   action:(void(^)(NSInteger alertTag, NSInteger actionIndex))block
-        cancelActionTitle:(NSString *)cancelTitle
-       otherActionsTitles:(NSString *)actionTitles,... {
-    
-    NSMutableArray *arrayTitles = [[NSMutableArray alloc] init];
-    [arrayTitles addObject:cancelTitle];
-    
-    NSString *szActionTitle = nil;
-    va_list argumentList;
-    if(actionTitles) {
-        [arrayTitles addObject:actionTitles];
-        va_start(argumentList, actionTitles);
-        szActionTitle = va_arg(argumentList, NSString *);
-        while(szActionTitle) {
-            [arrayTitles addObject:szActionTitle];
-            szActionTitle = va_arg(argumentList, NSString *);
-        }
-        
-        va_end(argumentList);
-    }
-    
-    if(IOS8_LATER) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-        for(NSInteger i = 0; i < arrayTitles.count; i++)
-        {
-            NSString *string = [arrayTitles objectAtIndex:i];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:string style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                if(block)
-                {
-                    block(tag, i);
-                }
-            }];
-            [alertController addAction:okAction];
-        }
-        [self presentViewController:alertController animated:YES completion:nil];
-    } else {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_8_0
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:actionTitles, nil];
-        alert.alertActionBlock = block;
-        [alert show];
-#endif
-    }
-}
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_8_0
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(alertView.alertActionBlock)
-    {
-        alertView.alertActionBlock(alertView.tag, buttonIndex);
-    }
-}
-#endif
 
 #pragma mark waitting Indicator
 - (void)showWaitingView:(NSString *)text {

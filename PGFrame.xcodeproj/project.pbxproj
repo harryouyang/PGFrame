@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112D32ED1D9CADC900CDB70C /* PGH5JsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112D32EC1D9CADC900CDB70C /* PGH5JsController.m */; };
 		1134A3E21D9225C00030B728 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A3E11D9225C00030B728 /* main.m */; };
 		1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A3E41D9225C00030B728 /* AppDelegate.m */; };
 		1134A3E81D9225C00030B728 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A3E71D9225C00030B728 /* ViewController.m */; };
@@ -26,6 +27,12 @@
 		1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44C1D928FE50030B728 /* icon_return@3x.png */; };
 		1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44D1D928FE50030B728 /* loading_logo@3x.png */; };
 		1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44E1D928FE50030B728 /* loading_round@3x.png */; };
+		1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */; };
+		1190D2A21D9B6AAB00F4DFB4 /* PGMessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */; };
+		1190D2A51D9B92F900F4DFB4 /* UIViewController+message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A41D9B92F900F4DFB4 /* UIViewController+message.m */; };
+		1190D2A81D9B9AAA00F4DFB4 /* PGWebBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A71D9B9AAA00F4DFB4 /* PGWebBaseController.m */; };
+		1190D2AC1D9B9CEC00F4DFB4 /* PGJSBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2AB1D9B9CEC00F4DFB4 /* PGJSBaseController.m */; };
+		1190D2AF1D9B9D3700F4DFB4 /* PGJSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2AE1D9B9D3700F4DFB4 /* PGJSObject.m */; };
 		1198C6381D979E420084F84D /* PGPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1198C6371D979E420084F84D /* PGPayController.m */; };
 		1198C63B1D979EFC0084F84D /* PGOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1198C63A1D979EFC0084F84D /* PGOrderDetailController.m */; };
 		1198C63E1D97E5650084F84D /* PGNetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1198C63D1D97E5650084F84D /* PGNetController.m */; };
@@ -66,9 +73,12 @@
 		11C877791D96BE4000546910 /* UIColor+darken.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C877781D96BE4000546910 /* UIColor+darken.m */; };
 		11C8777C1D96C67F00546910 /* PGPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777B1D96C67F00546910 /* PGPayManager.m */; };
 		11C8777F1D96C7DD00546910 /* PGBaseController+pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */; };
+		11C9F8331D9A3C19005A1E85 /* PGRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		112D32EB1D9CADC900CDB70C /* PGH5JsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGH5JsController.h; sourceTree = "<group>"; };
+		112D32EC1D9CADC900CDB70C /* PGH5JsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGH5JsController.m; sourceTree = "<group>"; };
 		1134A3DD1D9225C00030B728 /* PGFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1134A3E11D9225C00030B728 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1134A3E31D9225C00030B728 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +114,18 @@
 		1134A44C1D928FE50030B728 /* icon_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_return@3x.png"; sourceTree = "<group>"; };
 		1134A44D1D928FE50030B728 /* loading_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_logo@3x.png"; sourceTree = "<group>"; };
 		1134A44E1D928FE50030B728 /* loading_round@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_round@3x.png"; sourceTree = "<group>"; };
+		1190D29D1D9B691B00F4DFB4 /* PGApnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApnsManager.h; sourceTree = "<group>"; };
+		1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApnsManager.m; sourceTree = "<group>"; };
+		1190D2A01D9B6AAB00F4DFB4 /* PGMessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMessageObject.h; sourceTree = "<group>"; };
+		1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGMessageObject.m; sourceTree = "<group>"; };
+		1190D2A31D9B92F900F4DFB4 /* UIViewController+message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+message.h"; sourceTree = "<group>"; };
+		1190D2A41D9B92F900F4DFB4 /* UIViewController+message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+message.m"; sourceTree = "<group>"; };
+		1190D2A61D9B9AAA00F4DFB4 /* PGWebBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGWebBaseController.h; sourceTree = "<group>"; };
+		1190D2A71D9B9AAA00F4DFB4 /* PGWebBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGWebBaseController.m; sourceTree = "<group>"; };
+		1190D2AA1D9B9CEC00F4DFB4 /* PGJSBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGJSBaseController.h; sourceTree = "<group>"; };
+		1190D2AB1D9B9CEC00F4DFB4 /* PGJSBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGJSBaseController.m; sourceTree = "<group>"; };
+		1190D2AD1D9B9D3700F4DFB4 /* PGJSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGJSObject.h; sourceTree = "<group>"; };
+		1190D2AE1D9B9D3700F4DFB4 /* PGJSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGJSObject.m; sourceTree = "<group>"; };
 		1198C6361D979E420084F84D /* PGPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPayController.h; sourceTree = "<group>"; };
 		1198C6371D979E420084F84D /* PGPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPayController.m; sourceTree = "<group>"; };
 		1198C6391D979EFC0084F84D /* PGOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGOrderDetailController.h; sourceTree = "<group>"; };
@@ -173,6 +195,9 @@
 		11C8777B1D96C67F00546910 /* PGPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPayManager.m; sourceTree = "<group>"; };
 		11C8777D1D96C7DD00546910 /* PGBaseController+pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGBaseController+pay.h"; sourceTree = "<group>"; };
 		11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGBaseController+pay.m"; sourceTree = "<group>"; };
+		11C9F8311D9A3C19005A1E85 /* PGRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRefreshControl.h; sourceTree = "<group>"; };
+		11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRefreshControl.m; sourceTree = "<group>"; };
+		11C9F8341D9A41C0005A1E85 /* PGRefreshControlHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRefreshControlHead.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +280,7 @@
 		1134A41D1D922C0A0030B728 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				1190D2A91D9B9CC000F4DFB4 /* jsWeb */,
 				1134A4261D922C7A0030B728 /* PGBaseController.h */,
 				1134A4271D922C7A0030B728 /* PGBaseController.m */,
 				1134A4291D922EA50030B728 /* PGNavigationController.h */,
@@ -265,6 +291,8 @@
 				11C877581D967D9D00546910 /* PGTableBaseController.m */,
 				11C8777D1D96C7DD00546910 /* PGBaseController+pay.h */,
 				11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */,
+				1190D2A61D9B9AAA00F4DFB4 /* PGWebBaseController.h */,
+				1190D2A71D9B9AAA00F4DFB4 /* PGWebBaseController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -333,6 +361,7 @@
 		1134A4221D922C0A0030B728 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				11C9F8301D9A19BC005A1E85 /* refresh */,
 				11C8775D1D96B35600546910 /* popupView */,
 				1134A4421D9285910030B728 /* waitingView */,
 				1134A42C1D9235AB0030B728 /* category */,
@@ -372,6 +401,8 @@
 				11A1C56A1D93DD200069E490 /* NSString+ruleCheck.m */,
 				11C877771D96BE4000546910 /* UIColor+darken.h */,
 				11C877781D96BE4000546910 /* UIColor+darken.m */,
+				1190D2A31D9B92F900F4DFB4 /* UIViewController+message.h */,
+				1190D2A41D9B92F900F4DFB4 /* UIViewController+message.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -391,6 +422,8 @@
 				1198C63A1D979EFC0084F84D /* PGOrderDetailController.m */,
 				1198C63C1D97E5650084F84D /* PGNetController.h */,
 				1198C63D1D97E5650084F84D /* PGNetController.m */,
+				112D32EB1D9CADC900CDB70C /* PGH5JsController.h */,
+				112D32EC1D9CADC900CDB70C /* PGH5JsController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -422,6 +455,17 @@
 			path = waitingView;
 			sourceTree = "<group>";
 		};
+		1190D2A91D9B9CC000F4DFB4 /* jsWeb */ = {
+			isa = PBXGroup;
+			children = (
+				1190D2AA1D9B9CEC00F4DFB4 /* PGJSBaseController.h */,
+				1190D2AB1D9B9CEC00F4DFB4 /* PGJSBaseController.m */,
+				1190D2AD1D9B9D3700F4DFB4 /* PGJSObject.h */,
+				1190D2AE1D9B9D3700F4DFB4 /* PGJSObject.m */,
+			);
+			path = jsWeb;
+			sourceTree = "<group>";
+		};
 		1198C63F1D9801140084F84D /* patch */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +480,10 @@
 		1198C6401D9801140084F84D /* pushMsg */ = {
 			isa = PBXGroup;
 			children = (
+				1190D29D1D9B691B00F4DFB4 /* PGApnsManager.h */,
+				1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */,
+				1190D2A01D9B6AAB00F4DFB4 /* PGMessageObject.h */,
+				1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */,
 			);
 			path = pushMsg;
 			sourceTree = "<group>";
@@ -478,6 +526,16 @@
 				11C877701D96B9AC00546910 /* PGPaySheetView.m */,
 			);
 			path = popupView;
+			sourceTree = "<group>";
+		};
+		11C9F8301D9A19BC005A1E85 /* refresh */ = {
+			isa = PBXGroup;
+			children = (
+				11C9F8311D9A3C19005A1E85 /* PGRefreshControl.h */,
+				11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */,
+				11C9F8341D9A41C0005A1E85 /* PGRefreshControlHead.h */,
+			);
+			path = refresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,11 +626,13 @@
 				11A1C56E1D93DE8F0069E490 /* PGBaseObj.m in Sources */,
 				11A1C5681D93DCC90069E490 /* NSString+json.m in Sources */,
 				11A1C54F1D937E900069E490 /* PGEncrypt.m in Sources */,
+				1190D2A21D9B6AAB00F4DFB4 /* PGMessageObject.m in Sources */,
 				11C8775C1D968BAC00546910 /* PGMsgAndErrorController.m in Sources */,
 				11A1C5461D9375D40069E490 /* PGAPI.m in Sources */,
 				1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */,
 				11A1C5431D9372C40069E490 /* PGHttpClient.m in Sources */,
 				11C877791D96BE4000546910 /* UIColor+darken.m in Sources */,
+				1190D2A81D9B9AAA00F4DFB4 /* PGWebBaseController.m in Sources */,
 				1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */,
 				11A1C5651D93DCB00069E490 /* NSString+encrypt.m in Sources */,
 				1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */,
@@ -580,12 +640,15 @@
 				1198C6431D9801690084F84D /* PGPatchManager.m in Sources */,
 				1198C6461D9801C90084F84D /* PGPatchObject.m in Sources */,
 				1134A4321D92528E0030B728 /* PGApp.m in Sources */,
+				1190D2AC1D9B9CEC00F4DFB4 /* PGJSBaseController.m in Sources */,
 				1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */,
 				11C877601D96B39300546910 /* PGPopupView.m in Sources */,
 				1198C63B1D979EFC0084F84D /* PGOrderDetailController.m in Sources */,
 				11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */,
 				11A1C54C1D937C200069E490 /* PGResultObject.m in Sources */,
 				1198C64B1D9804390084F84D /* JPEngine.m in Sources */,
+				11C9F8331D9A3C19005A1E85 /* PGRefreshControl.m in Sources */,
+				112D32ED1D9CADC900CDB70C /* PGH5JsController.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
 				1198C6381D979E420084F84D /* PGPayController.m in Sources */,
 				11C877591D967D9D00546910 /* PGTableBaseController.m in Sources */,
@@ -593,10 +656,12 @@
 				11A1C5491D9375FF0069E490 /* PGRequestManager.m in Sources */,
 				11C877761D96BBDA00546910 /* PGOrderTallyController.m in Sources */,
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
+				1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */,
 				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
 				11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */,
 				11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */,
 				1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */,
+				1190D2A51D9B92F900F4DFB4 /* UIViewController+message.m in Sources */,
 				1134A44B1D92863F0030B728 /* PGRotaionWaitingView.m in Sources */,
 				1134A3E21D9225C00030B728 /* main.m in Sources */,
 				1134A43E1D926D100030B728 /* PGHomeController.m in Sources */,
@@ -605,6 +670,7 @@
 				11C8777F1D96C7DD00546910 /* PGBaseController+pay.m in Sources */,
 				11A1C5621D93D5B40069E490 /* PGCacheManager.m in Sources */,
 				11A1C55F1D93D5310069E490 /* PGContext.m in Sources */,
+				1190D2AF1D9B9D3700F4DFB4 /* PGJSObject.m in Sources */,
 				1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

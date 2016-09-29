@@ -15,6 +15,7 @@ typedef NS_ENUM(NSUInteger, PGApiType) {
     API_TYPE_PRODUCT_LIST,//产品列表
     API_TYPE_CREATE_ORDER,//创建订单
     API_TYPE_ORDER_PAY,//订单支付
+    API_TYPE_APNS_DEVICE_TOKEN,//提交消息推送的deviceToken
     
     API_TYPE_PATCH,//获取补丁
 };
