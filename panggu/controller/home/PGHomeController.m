@@ -59,9 +59,13 @@
     {
         PGH5JsController *controller = [[PGH5JsController alloc] initWithTitle:@"H5交互实例"];
         [self pushNewViewController:controller];
-        NSString *url = @"http://192.168.1.206/webv3/index.php#/activity/NativeInteraction";
-//        url = @"http://192.168.1.206/webv3/html/NativeInteraction.html";
-        [controller loadWebRequestWithURLString:url home:url];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"nativeInteraction" ofType:@"html"];
+        NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        [controller loadWebRequestWithHtmlString:htmlString];
+        
+//        NSString *url = @"http://192.168.1.206/webv3/index.php#/activity/NativeInteraction";
+////        url = @"http://192.168.1.206/webv3/html/NativeInteraction.html";
+//        [controller loadWebRequestWithURLString:url home:url];
     }
 }
 

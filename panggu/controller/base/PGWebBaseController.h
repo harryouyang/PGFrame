@@ -10,6 +10,9 @@
 
 @interface PGWebBaseController : PGBaseController
 @property(nonatomic, strong)UIWebView *webView;
+/*
+ webView加载完成后会回调此block
+ */
 @property(nonatomic, copy)void(^webViewDidFinishLoadBlock)(UIWebView *webview);
 
 - (id)initWithTitle:(NSString *)title;

@@ -27,6 +27,7 @@
 		1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44C1D928FE50030B728 /* icon_return@3x.png */; };
 		1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44D1D928FE50030B728 /* loading_logo@3x.png */; };
 		1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44E1D928FE50030B728 /* loading_round@3x.png */; };
+		118F9C9A1DA8F24100E58202 /* nativeInteraction.html in Resources */ = {isa = PBXBuildFile; fileRef = 118F9C991DA8F24100E58202 /* nativeInteraction.html */; };
 		1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */; };
 		1190D2A21D9B6AAB00F4DFB4 /* PGMessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */; };
 		1190D2A51D9B92F900F4DFB4 /* UIViewController+message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A41D9B92F900F4DFB4 /* UIViewController+message.m */; };
@@ -114,6 +115,7 @@
 		1134A44C1D928FE50030B728 /* icon_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_return@3x.png"; sourceTree = "<group>"; };
 		1134A44D1D928FE50030B728 /* loading_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_logo@3x.png"; sourceTree = "<group>"; };
 		1134A44E1D928FE50030B728 /* loading_round@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_round@3x.png"; sourceTree = "<group>"; };
+		118F9C991DA8F24100E58202 /* nativeInteraction.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nativeInteraction.html; sourceTree = "<group>"; };
 		1190D29D1D9B691B00F4DFB4 /* PGApnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApnsManager.h; sourceTree = "<group>"; };
 		1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApnsManager.m; sourceTree = "<group>"; };
 		1190D2A01D9B6AAB00F4DFB4 /* PGMessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMessageObject.h; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		1134A3DF1D9225C00030B728 /* PGFrame */ = {
 			isa = PBXGroup;
 			children = (
+				118F9C991DA8F24100E58202 /* nativeInteraction.html */,
 				1134A3E31D9225C00030B728 /* AppDelegate.h */,
 				1134A3E41D9225C00030B728 /* AppDelegate.m */,
 				1134A3E61D9225C00030B728 /* ViewController.h */,
@@ -597,6 +600,7 @@
 			files = (
 				11C8776B1D96B87B00546910 /* menber_top1@3x.png in Resources */,
 				1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */,
+				118F9C9A1DA8F24100E58202 /* nativeInteraction.html in Resources */,
 				1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */,
 				11C877691D96B87B00546910 /* menber_1@3x.png in Resources */,
 				1134A3F01D9225C00030B728 /* LaunchScreen.storyboard in Resources */,

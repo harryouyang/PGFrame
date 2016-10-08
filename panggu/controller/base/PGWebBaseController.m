@@ -70,29 +70,43 @@
 - (void)createSubViews
 {
     float nOriginY = self.nNavMaxY;
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY)];
-    _webView.delegate = self;
-    _webView.scalesPageToFit = YES;
-    _webView.scrollView.bounces = NO;
-    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:_webView];
+    self.webView.frame = CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY);
+//    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY)];
+//    _webView.delegate = self;
+//    _webView.scalesPageToFit = YES;
+//    _webView.scrollView.bounces = NO;
+//    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.webView];
+}
+
+- (UIWebView *)webView
+{
+    if(_webView == nil)
+    {
+        _webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        _webView.delegate = self;
+        _webView.scalesPageToFit = YES;
+        _webView.scrollView.bounces = NO;
+        _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    }
+    return _webView;
 }
 
 - (void)loadWebRequestWithURLString:(NSString *)urlString home:(NSString *)homeUrl
 {
     self.homeURL = [NSURL URLWithString:homeUrl];
     self.firstURL = [NSURL URLWithString:urlString];
-    if(_webView && self.firstURL != nil)
+    if(self.webView && self.firstURL != nil)
     {
-        [_webView loadRequest:[NSURLRequest requestWithURL:self.firstURL]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.firstURL]];
     }
 }
 
 - (void)loadWebRequestWithHtmlString:(NSString *)htmlString
 {
-    if(_webView)
+    if(self.webView)
     {
-        [_webView loadHTMLString:htmlString baseURL:nil];
+        [self.webView loadHTMLString:htmlString baseURL:nil];
     }
 }
 
@@ -165,17 +179,17 @@
 #pragma mark -
 - (void)reloadData
 {
-    if(_webView && self.firstURL != nil)
+    if(self.webView && self.firstURL != nil)
     {
-        [_webView loadRequest:[NSURLRequest requestWithURL:self.firstURL]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.firstURL]];
     }
 }
 
 - (void)errorleftMenuResponse:(id)sender
 {
-    if(_webView.canGoBack)
+    if(self.webView.canGoBack)
     {
-        [_webView goBack];
+        [self.webView goBack];
     }
 }
 
