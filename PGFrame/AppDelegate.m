@@ -14,6 +14,7 @@
 #import "PGPatchManager.h"
 #import "PGVersionManager.h"
 #import "Reachability.h"
+#import "PGCacheManager.h"
 
 @interface AppDelegate ()
 @property(nonatomic, strong)Reachability *hostReach;
@@ -33,6 +34,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //清除缓存
+    [PGCacheManager clearCacheDataForNewVersion];
     
     //热更新
     [[PGPatchManager shareInstance] startListen];
@@ -76,7 +80,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark -
+#pragma mark - 网络检测
 - (void)networkCheck
 {
     [[NSNotificationCenter defaultCenter] addObserver:self

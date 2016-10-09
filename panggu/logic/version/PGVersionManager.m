@@ -84,12 +84,9 @@
         {
             [[PGApp appRootController] showAskAlertTitle:[NSString stringWithFormat:@"发现新版本:%@",versionObj.szVersion] message:versionObj.szDesc tag:1000 action:^(NSInteger alertTag, NSInteger actionIndex) {
                 if(actionIndex == 0) {
-                    [PGCacheManager clearCacheData:^{
-                        
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:versionObj.szUrl]];
-                        });
-                    }];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:versionObj.szUrl]];
+                    });
                 }
             } cancelActionTitle:@"更新" otherActionsTitles:@"取消",nil];
         }
@@ -97,12 +94,9 @@
         {
             [[PGApp appRootController] showAskAlertTitle:[NSString stringWithFormat:@"发现新版本:%@",versionObj.szVersion] message:versionObj.szDesc tag:1000 action:^(NSInteger alertTag, NSInteger actionIndex) {
                 if(actionIndex == 0) {
-                    [PGCacheManager clearCacheData:^{
-                        
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:versionObj.szUrl]];
-                        });
-                    }];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:versionObj.szUrl]];
+                    });
                 }
             } cancelActionTitle:@"更新" otherActionsTitles:nil];
         }

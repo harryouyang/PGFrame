@@ -172,6 +172,23 @@
     }
 }
 
++ (void)clearCacheDataForNewVersion
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int bClear = [[defaults stringForKey:@"bCacheClear"] intValue];
+    NSInteger oldVersion = [defaults integerForKey:@"currentVersion"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSInteger nVersion = [version integerValue];
+    if(bClear == 0 || nVersion > oldVersion)
+    {
+        [PGCacheManager clearCacheData:nil];
+        
+        [defaults setObject:@"1" forKey:@"bCacheClear"];
+        [defaults setInteger:nVersion forKey:@"currentVersion"];
+        [defaults synchronize];
+    }
+}
+
 #pragma mark -
 /**
  避免API接口频繁的调用。

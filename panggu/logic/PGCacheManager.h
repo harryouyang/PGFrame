@@ -38,6 +38,11 @@ typedef NS_ENUM(NSUInteger, PGCacheType)
  */
 + (void)clearCacheData:(void(^)())finishBlock;
 
+/*
+ 清理缓存,版本更新后调用。
+ */
++ (void)clearCacheDataForNewVersion;
+
 #pragma mark -
 /**
  避免API接口频繁的调用。
