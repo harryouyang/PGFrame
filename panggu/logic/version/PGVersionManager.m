@@ -72,7 +72,7 @@
     [PGRequestManager startPostClient:API_TYPE_VERSION_CHECK param:@{@"app_version":version} target:self extendParam:nil];
 }
 
-#pragma mark -
+#pragma mark - PGApiDelegate
 - (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
 {
     if(resultObj.nCode == 0)
