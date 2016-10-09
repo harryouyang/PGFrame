@@ -27,7 +27,9 @@
 		1134A44F1D928FE50030B728 /* icon_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44C1D928FE50030B728 /* icon_return@3x.png */; };
 		1134A4501D928FE50030B728 /* loading_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44D1D928FE50030B728 /* loading_logo@3x.png */; };
 		1134A4511D928FE50030B728 /* loading_round@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1134A44E1D928FE50030B728 /* loading_round@3x.png */; };
-		11845E8F1DA9DB3F00D937F3 /* PGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E8E1DA9DB3F00D937F3 /* PGVersionManager.m */; };
+		11845E931DA9E1FE00D937F3 /* PGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E921DA9E1FE00D937F3 /* PGVersionManager.m */; };
+		11845E961DA9E26200D937F3 /* PGVersionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E951DA9E26200D937F3 /* PGVersionObject.m */; };
+		11845E991DA9E4D700D937F3 /* NSDate+PGDateExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */; };
 		118F9C9A1DA8F24100E58202 /* nativeInteraction.html in Resources */ = {isa = PBXBuildFile; fileRef = 118F9C991DA8F24100E58202 /* nativeInteraction.html */; };
 		1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */; };
 		1190D2A21D9B6AAB00F4DFB4 /* PGMessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */; };
@@ -116,8 +118,12 @@
 		1134A44C1D928FE50030B728 /* icon_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_return@3x.png"; sourceTree = "<group>"; };
 		1134A44D1D928FE50030B728 /* loading_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_logo@3x.png"; sourceTree = "<group>"; };
 		1134A44E1D928FE50030B728 /* loading_round@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_round@3x.png"; sourceTree = "<group>"; };
-		11845E8D1DA9DB3F00D937F3 /* PGVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGVersionManager.h; sourceTree = "<group>"; };
-		11845E8E1DA9DB3F00D937F3 /* PGVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGVersionManager.m; sourceTree = "<group>"; };
+		11845E911DA9E1FE00D937F3 /* PGVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGVersionManager.h; sourceTree = "<group>"; };
+		11845E921DA9E1FE00D937F3 /* PGVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGVersionManager.m; sourceTree = "<group>"; };
+		11845E941DA9E26200D937F3 /* PGVersionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGVersionObject.h; sourceTree = "<group>"; };
+		11845E951DA9E26200D937F3 /* PGVersionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGVersionObject.m; sourceTree = "<group>"; };
+		11845E971DA9E4D700D937F3 /* NSDate+PGDateExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PGDateExtend.h"; sourceTree = "<group>"; };
+		11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PGDateExtend.m"; sourceTree = "<group>"; };
 		118F9C991DA8F24100E58202 /* nativeInteraction.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nativeInteraction.html; sourceTree = "<group>"; };
 		1190D29D1D9B691B00F4DFB4 /* PGApnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApnsManager.h; sourceTree = "<group>"; };
 		1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApnsManager.m; sourceTree = "<group>"; };
@@ -334,6 +340,7 @@
 		1134A4201D922C0A0030B728 /* logic */ = {
 			isa = PBXGroup;
 			children = (
+				11845E901DA9E1F300D937F3 /* version */,
 				1198C63F1D9801140084F84D /* patch */,
 				1198C6401D9801140084F84D /* pushMsg */,
 				11A1C5401D93723C0069E490 /* netRequest */,
@@ -351,8 +358,6 @@
 				11C877551D967B5300546910 /* PGTableDataSource.m */,
 				11C8777A1D96C67F00546910 /* PGPayManager.h */,
 				11C8777B1D96C67F00546910 /* PGPayManager.m */,
-				11845E8D1DA9DB3F00D937F3 /* PGVersionManager.h */,
-				11845E8E1DA9DB3F00D937F3 /* PGVersionManager.m */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -411,6 +416,8 @@
 				11C877781D96BE4000546910 /* UIColor+darken.m */,
 				1190D2A31D9B92F900F4DFB4 /* UIViewController+message.h */,
 				1190D2A41D9B92F900F4DFB4 /* UIViewController+message.m */,
+				11845E971DA9E4D700D937F3 /* NSDate+PGDateExtend.h */,
+				11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -461,6 +468,17 @@
 				1134A44A1D92863F0030B728 /* PGRotaionWaitingView.m */,
 			);
 			path = waitingView;
+			sourceTree = "<group>";
+		};
+		11845E901DA9E1F300D937F3 /* version */ = {
+			isa = PBXGroup;
+			children = (
+				11845E911DA9E1FE00D937F3 /* PGVersionManager.h */,
+				11845E921DA9E1FE00D937F3 /* PGVersionManager.m */,
+				11845E941DA9E26200D937F3 /* PGVersionObject.h */,
+				11845E951DA9E26200D937F3 /* PGVersionObject.m */,
+			);
+			path = version;
 			sourceTree = "<group>";
 		};
 		1190D2A91D9B9CC000F4DFB4 /* jsWeb */ = {
@@ -653,12 +671,13 @@
 				1134A4451D9285C10030B728 /* PGWaitingView.m in Sources */,
 				11C877601D96B39300546910 /* PGPopupView.m in Sources */,
 				1198C63B1D979EFC0084F84D /* PGOrderDetailController.m in Sources */,
-				11845E8F1DA9DB3F00D937F3 /* PGVersionManager.m in Sources */,
+				11845E931DA9E1FE00D937F3 /* PGVersionManager.m in Sources */,
 				11A1C5551D938A240069E490 /* NSDictionary+parse.m in Sources */,
 				11A1C54C1D937C200069E490 /* PGResultObject.m in Sources */,
 				1198C64B1D9804390084F84D /* JPEngine.m in Sources */,
 				11C9F8331D9A3C19005A1E85 /* PGRefreshControl.m in Sources */,
 				112D32ED1D9CADC900CDB70C /* PGH5JsController.m in Sources */,
+				11845E961DA9E26200D937F3 /* PGVersionObject.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
 				1198C6381D979E420084F84D /* PGPayController.m in Sources */,
 				11C877591D967D9D00546910 /* PGTableBaseController.m in Sources */,
@@ -667,6 +686,7 @@
 				11C877761D96BBDA00546910 /* PGOrderTallyController.m in Sources */,
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
 				1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */,
+				11845E991DA9E4D700D937F3 /* NSDate+PGDateExtend.m in Sources */,
 				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
 				11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */,
 				11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */,
