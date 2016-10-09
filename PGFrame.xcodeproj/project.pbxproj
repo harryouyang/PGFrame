@@ -30,6 +30,7 @@
 		11845E931DA9E1FE00D937F3 /* PGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E921DA9E1FE00D937F3 /* PGVersionManager.m */; };
 		11845E961DA9E26200D937F3 /* PGVersionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E951DA9E26200D937F3 /* PGVersionObject.m */; };
 		11845E991DA9E4D700D937F3 /* NSDate+PGDateExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */; };
+		11845E9D1DAA179100D937F3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E9C1DAA179100D937F3 /* Reachability.m */; };
 		118F9C9A1DA8F24100E58202 /* nativeInteraction.html in Resources */ = {isa = PBXBuildFile; fileRef = 118F9C991DA8F24100E58202 /* nativeInteraction.html */; };
 		1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */; };
 		1190D2A21D9B6AAB00F4DFB4 /* PGMessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190D2A11D9B6AAB00F4DFB4 /* PGMessageObject.m */; };
@@ -124,6 +125,8 @@
 		11845E951DA9E26200D937F3 /* PGVersionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGVersionObject.m; sourceTree = "<group>"; };
 		11845E971DA9E4D700D937F3 /* NSDate+PGDateExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PGDateExtend.h"; sourceTree = "<group>"; };
 		11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PGDateExtend.m"; sourceTree = "<group>"; };
+		11845E9B1DAA179100D937F3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		11845E9C1DAA179100D937F3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		118F9C991DA8F24100E58202 /* nativeInteraction.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nativeInteraction.html; sourceTree = "<group>"; };
 		1190D29D1D9B691B00F4DFB4 /* PGApnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApnsManager.h; sourceTree = "<group>"; };
 		1190D29E1D9B691B00F4DFB4 /* PGApnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApnsManager.m; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 		1134A41F1D922C0A0030B728 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				11845E9A1DAA179100D937F3 /* Reachability */,
 				1198C6471D9804390084F84D /* JSPatch */,
 			);
 			path = lib;
@@ -479,6 +483,15 @@
 				11845E951DA9E26200D937F3 /* PGVersionObject.m */,
 			);
 			path = version;
+			sourceTree = "<group>";
+		};
+		11845E9A1DAA179100D937F3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				11845E9B1DAA179100D937F3 /* Reachability.h */,
+				11845E9C1DAA179100D937F3 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		1190D2A91D9B9CC000F4DFB4 /* jsWeb */ = {
@@ -701,6 +714,7 @@
 				11A1C5621D93D5B40069E490 /* PGCacheManager.m in Sources */,
 				11A1C55F1D93D5310069E490 /* PGContext.m in Sources */,
 				1190D2AF1D9B9D3700F4DFB4 /* PGJSObject.m in Sources */,
+				11845E9D1DAA179100D937F3 /* Reachability.m in Sources */,
 				1134A4411D9271770030B728 /* PGUIKitUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

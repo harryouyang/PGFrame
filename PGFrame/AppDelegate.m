@@ -13,9 +13,10 @@
 #import "PGPayManager.h"
 #import "PGPatchManager.h"
 #import "PGVersionManager.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
-
+@property(nonatomic, strong)Reachability *hostReach;
 @end
 
 @implementation AppDelegate
@@ -45,6 +46,8 @@
     
     [self.window makeKeyAndVisible];
     
+    [self networkCheck];
+    
     return YES;
 }
 
@@ -71,6 +74,28 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark -
+- (void)networkCheck
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    self.hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+    [self.hostReach startNotifier];
+}
+
+- (void)reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    if (status == NotReachable)
+    {
+        [self.window.rootViewController showTitle:@"提示" msg:@"无网络连接"];
+    }
 }
 
 @end

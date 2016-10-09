@@ -49,6 +49,7 @@
     if(self = [super init])
     {
         self.needUpdate = NO;
+        self.lastCheckDate = nil;
         self.nRetryCount = VERSION_RETRY_COUNT;
     }
     return self;
@@ -58,6 +59,7 @@
 {
     [PGVersionManager shareInstance].nRetryCount = VERSION_RETRY_COUNT;
     if([PGVersionManager shareInstance].needUpdate ||
+       [PGVersionManager shareInstance].lastCheckDate == nil ||
        [NSDate numDayFromDate:[PGVersionManager shareInstance].lastCheckDate toDate:[NSDate date]] >= 1)
     {
         [[PGVersionManager shareInstance] getVersionInfo];
