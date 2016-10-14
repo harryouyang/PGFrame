@@ -30,7 +30,6 @@
 		113C08331DAF648F0043E4BC /* PGRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C08321DAF648F0043E4BC /* PGRefreshController.m */; };
 		113C08361DAF7AEA0043E4BC /* UIScrollView+refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C08351DAF7AEA0043E4BC /* UIScrollView+refresh.m */; };
 		113C08391DAF83100043E4BC /* PGBaseRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C08381DAF83100043E4BC /* PGBaseRefreshView.m */; };
-		113C72691DB0752800BC27B3 /* PBBaseMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C72681DB0752800BC27B3 /* PBBaseMore.m */; };
 		113C726C1DB0754800BC27B3 /* PGBaseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C726B1DB0754800BC27B3 /* PGBaseMoreView.m */; };
 		113C726F1DB084E500BC27B3 /* PGSimpleMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C726E1DB084E500BC27B3 /* PGSimpleMoreView.m */; };
 		11845E931DA9E1FE00D937F3 /* PGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E921DA9E1FE00D937F3 /* PGVersionManager.m */; };
@@ -89,7 +88,6 @@
 		11C877791D96BE4000546910 /* UIColor+darken.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C877781D96BE4000546910 /* UIColor+darken.m */; };
 		11C8777C1D96C67F00546910 /* PGPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777B1D96C67F00546910 /* PGPayManager.m */; };
 		11C8777F1D96C7DD00546910 /* PGBaseController+pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */; };
-		11C9F8331D9A3C19005A1E85 /* PGRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,8 +134,6 @@
 		113C08351DAF7AEA0043E4BC /* UIScrollView+refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+refresh.m"; sourceTree = "<group>"; };
 		113C08371DAF83100043E4BC /* PGBaseRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseRefreshView.h; sourceTree = "<group>"; };
 		113C08381DAF83100043E4BC /* PGBaseRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseRefreshView.m; sourceTree = "<group>"; };
-		113C72671DB0752800BC27B3 /* PBBaseMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBaseMore.h; sourceTree = "<group>"; };
-		113C72681DB0752800BC27B3 /* PBBaseMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBaseMore.m; sourceTree = "<group>"; };
 		113C726A1DB0754800BC27B3 /* PGBaseMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseMoreView.h; sourceTree = "<group>"; };
 		113C726B1DB0754800BC27B3 /* PGBaseMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseMoreView.m; sourceTree = "<group>"; };
 		113C726D1DB084E500BC27B3 /* PGSimpleMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSimpleMoreView.h; sourceTree = "<group>"; };
@@ -241,9 +237,6 @@
 		11C8777B1D96C67F00546910 /* PGPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPayManager.m; sourceTree = "<group>"; };
 		11C8777D1D96C7DD00546910 /* PGBaseController+pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGBaseController+pay.h"; sourceTree = "<group>"; };
 		11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGBaseController+pay.m"; sourceTree = "<group>"; };
-		11C9F8311D9A3C19005A1E85 /* PGRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRefreshControl.h; sourceTree = "<group>"; };
-		11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRefreshControl.m; sourceTree = "<group>"; };
-		11C9F8341D9A41C0005A1E85 /* PGRefreshControlHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRefreshControlHead.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,17 +612,12 @@
 		11C9F8301D9A19BC005A1E85 /* refresh */ = {
 			isa = PBXGroup;
 			children = (
-				11C9F8311D9A3C19005A1E85 /* PGRefreshControl.h */,
-				11C9F8321D9A3C19005A1E85 /* PGRefreshControl.m */,
-				11C9F8341D9A41C0005A1E85 /* PGRefreshControlHead.h */,
 				113C08341DAF7AEA0043E4BC /* UIScrollView+refresh.h */,
 				113C08351DAF7AEA0043E4BC /* UIScrollView+refresh.m */,
 				113C08371DAF83100043E4BC /* PGBaseRefreshView.h */,
 				113C08381DAF83100043E4BC /* PGBaseRefreshView.m */,
 				119E95631DAFC0290002B015 /* PGRefreshRotate.h */,
 				119E95641DAFC0290002B015 /* PGRefreshRotate.m */,
-				113C72671DB0752800BC27B3 /* PBBaseMore.h */,
-				113C72681DB0752800BC27B3 /* PBBaseMore.m */,
 				113C726A1DB0754800BC27B3 /* PGBaseMoreView.h */,
 				113C726B1DB0754800BC27B3 /* PGBaseMoreView.m */,
 				113C726D1DB084E500BC27B3 /* PGSimpleMoreView.h */,
@@ -756,10 +744,8 @@
 				113C08331DAF648F0043E4BC /* PGRefreshController.m in Sources */,
 				11A1C54C1D937C200069E490 /* PGResultObject.m in Sources */,
 				1198C64B1D9804390084F84D /* JPEngine.m in Sources */,
-				11C9F8331D9A3C19005A1E85 /* PGRefreshControl.m in Sources */,
 				112D32ED1D9CADC900CDB70C /* PGH5JsController.m in Sources */,
 				11845E961DA9E26200D937F3 /* PGVersionObject.m in Sources */,
-				113C72691DB0752800BC27B3 /* PBBaseMore.m in Sources */,
 				1134A3E81D9225C00030B728 /* ViewController.m in Sources */,
 				1198C6381D979E420084F84D /* PGPayController.m in Sources */,
 				11C877591D967D9D00546910 /* PGTableBaseController.m in Sources */,
