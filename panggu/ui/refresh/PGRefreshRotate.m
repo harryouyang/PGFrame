@@ -24,9 +24,6 @@
     {
         self.backgroundColor = [UIColor clearColor];
         
-        self.mLoadingStopInset = 80;
-        self.mPullingDistance = -80;
-        
         self.angle = 0;
         
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width-40)/2, (self.frame.size.height-40)/2, 40, 40)];

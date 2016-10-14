@@ -13,12 +13,14 @@
 @protocol PGRefreshDelegate <NSObject>
 
 @required
-//- (BOOL)isLoadingData:(UIScrollView *)scrollView;
+/*
+ 开始刷新
+ */
 - (void)willStartRefresh:(UIScrollView *)scrollView;
+/*
+ 加载更多
+ */
 - (void)willStartLoadMore:(UIScrollView *)scrollView;
-
-@optional
-
 
 @end
 
@@ -40,16 +42,27 @@
 @property(nonatomic, assign)NSInteger nPageIndex;//当前的页数
 @property(nonatomic, assign)NSInteger nTotal;//总记录条数
 
+/*
+ 开始刷新
+ */
 - (void)startRefresh;
+/*
+ 结束刷新
+ */
 - (void)endRefreshing;
+/*
+ 结束加载更多
+ */
 - (void)endLoadMoring;
 
 #pragma mark -
 - (void)pgScrollViewDidScroll;
-
 - (void)pgScrollViewDidEndDragging;
 
 #pragma mark -
+/*
+ 刷新数据
+ */
 - (void)reRefreshData;
 
 @end

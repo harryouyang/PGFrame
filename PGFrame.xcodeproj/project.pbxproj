@@ -16,7 +16,6 @@
 		1134A3F01D9225C00030B728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1134A3EE1D9225C00030B728 /* LaunchScreen.storyboard */; };
 		1134A4281D922C7A0030B728 /* PGBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4271D922C7A0030B728 /* PGBaseController.m */; };
 		1134A42B1D922EA50030B728 /* PGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A42A1D922EA50030B728 /* PGNavigationController.m */; };
-		1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A42E1D9236090030B728 /* UIAlertView+action.m */; };
 		1134A4321D92528E0030B728 /* PGApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4311D92528E0030B728 /* PGApp.m */; };
 		1134A4381D9266B70030B728 /* UIImage+PGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A4371D9266B70030B728 /* UIImage+PGImage.m */; };
 		1134A43E1D926D100030B728 /* PGHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1134A43D1D926D100030B728 /* PGHomeController.m */; };
@@ -32,6 +31,7 @@
 		113C08391DAF83100043E4BC /* PGBaseRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C08381DAF83100043E4BC /* PGBaseRefreshView.m */; };
 		113C726C1DB0754800BC27B3 /* PGBaseMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C726B1DB0754800BC27B3 /* PGBaseMoreView.m */; };
 		113C726F1DB084E500BC27B3 /* PGSimpleMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C726E1DB084E500BC27B3 /* PGSimpleMoreView.m */; };
+		113C72721DB0E55A00BC27B3 /* UIAlertView+action.m in Sources */ = {isa = PBXBuildFile; fileRef = 113C72711DB0E55A00BC27B3 /* UIAlertView+action.m */; };
 		11845E931DA9E1FE00D937F3 /* PGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E921DA9E1FE00D937F3 /* PGVersionManager.m */; };
 		11845E961DA9E26200D937F3 /* PGVersionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E951DA9E26200D937F3 /* PGVersionObject.m */; };
 		11845E991DA9E4D700D937F3 /* NSDate+PGDateExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 11845E981DA9E4D700D937F3 /* NSDate+PGDateExtend.m */; };
@@ -107,8 +107,6 @@
 		1134A4271D922C7A0030B728 /* PGBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseController.m; sourceTree = "<group>"; };
 		1134A4291D922EA50030B728 /* PGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNavigationController.h; sourceTree = "<group>"; };
 		1134A42A1D922EA50030B728 /* PGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNavigationController.m; sourceTree = "<group>"; };
-		1134A42D1D9236090030B728 /* UIAlertView+action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+action.h"; sourceTree = "<group>"; };
-		1134A42E1D9236090030B728 /* UIAlertView+action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+action.m"; sourceTree = "<group>"; };
 		1134A4301D92528E0030B728 /* PGApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApp.h; sourceTree = "<group>"; };
 		1134A4311D92528E0030B728 /* PGApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApp.m; sourceTree = "<group>"; };
 		1134A4331D9254310030B728 /* PGMacroDefHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMacroDefHeader.h; sourceTree = "<group>"; };
@@ -138,6 +136,8 @@
 		113C726B1DB0754800BC27B3 /* PGBaseMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseMoreView.m; sourceTree = "<group>"; };
 		113C726D1DB084E500BC27B3 /* PGSimpleMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSimpleMoreView.h; sourceTree = "<group>"; };
 		113C726E1DB084E500BC27B3 /* PGSimpleMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSimpleMoreView.m; sourceTree = "<group>"; };
+		113C72701DB0E55A00BC27B3 /* UIAlertView+action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+action.h"; sourceTree = "<group>"; };
+		113C72711DB0E55A00BC27B3 /* UIAlertView+action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+action.m"; sourceTree = "<group>"; };
 		11845E911DA9E1FE00D937F3 /* PGVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGVersionManager.h; sourceTree = "<group>"; };
 		11845E921DA9E1FE00D937F3 /* PGVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGVersionManager.m; sourceTree = "<group>"; };
 		11845E941DA9E26200D937F3 /* PGVersionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGVersionObject.h; sourceTree = "<group>"; };
@@ -408,7 +408,6 @@
 				11C9F8301D9A19BC005A1E85 /* refresh */,
 				11C8775D1D96B35600546910 /* popupView */,
 				1134A4421D9285910030B728 /* waitingView */,
-				1134A42C1D9235AB0030B728 /* category */,
 				1134A4231D922C0A0030B728 /* tableCell */,
 			);
 			path = ui;
@@ -421,18 +420,11 @@
 			path = tableCell;
 			sourceTree = "<group>";
 		};
-		1134A42C1D9235AB0030B728 /* category */ = {
-			isa = PBXGroup;
-			children = (
-				1134A42D1D9236090030B728 /* UIAlertView+action.h */,
-				1134A42E1D9236090030B728 /* UIAlertView+action.m */,
-			);
-			path = category;
-			sourceTree = "<group>";
-		};
 		1134A4351D9266640030B728 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				113C72701DB0E55A00BC27B3 /* UIAlertView+action.h */,
+				113C72711DB0E55A00BC27B3 /* UIAlertView+action.m */,
 				1134A4361D9266B70030B728 /* UIImage+PGImage.h */,
 				1134A4371D9266B70030B728 /* UIImage+PGImage.m */,
 				11A1C5531D938A240069E490 /* NSDictionary+parse.h */,
@@ -755,7 +747,6 @@
 				1134A3E51D9225C00030B728 /* AppDelegate.m in Sources */,
 				1190D29F1D9B691B00F4DFB4 /* PGApnsManager.m in Sources */,
 				11845E991DA9E4D700D937F3 /* NSDate+PGDateExtend.m in Sources */,
-				1134A42F1D9236090030B728 /* UIAlertView+action.m in Sources */,
 				11A1C5521D9380B40069E490 /* PGDataParseManager.m in Sources */,
 				11A1C5581D93B35D0069E490 /* PGBaseController+errorView.m in Sources */,
 				1134A4481D9286180030B728 /* PGCustomWaitingView.m in Sources */,
@@ -765,6 +756,7 @@
 				1134A43E1D926D100030B728 /* PGHomeController.m in Sources */,
 				1198C63E1D97E5650084F84D /* PGNetController.m in Sources */,
 				11C877561D967B5300546910 /* PGTableDataSource.m in Sources */,
+				113C72721DB0E55A00BC27B3 /* UIAlertView+action.m in Sources */,
 				11C8777F1D96C7DD00546910 /* PGBaseController+pay.m in Sources */,
 				11A1C5621D93D5B40069E490 /* PGCacheManager.m in Sources */,
 				113C08391DAF83100043E4BC /* PGBaseRefreshView.m in Sources */,
