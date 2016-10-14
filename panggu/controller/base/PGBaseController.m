@@ -156,6 +156,12 @@
 }
 
 #pragma mark -
+- (void)asyncOnMainQueue:(dispatch_block_t)block
+{
+    dispatch_async(dispatch_get_main_queue(), block);
+}
+
+#pragma mark -
 - (void)createNavTitleView:(UIView *)view
 {
     self.navigationItem.titleView = view;

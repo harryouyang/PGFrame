@@ -9,19 +9,25 @@
 #import "PGTableBaseController.h"
 #import "PGConfig.h"
 #import "PGMacroDefHeader.h"
+#import "PGRefreshRotate.h"
+#import "PGSimpleMoreView.h"
+
+@interface PGTableBaseController ()<PGRefreshDelegate>
+@end
 
 @implementation PGTableBaseController
 
 - (void)createInitData
 {
     [super createInitData];
+    self.nNumOfPage = 20;
     self.mDataArray = [[NSMutableArray alloc] init];
 }
 
 - (UITableView *)createTableView:(CGRect)rect
                            style:(UITableViewStyle)style
               bEnableRefreshHead:(BOOL)bEnableRefreshHead
-                       bLoadMore:(BOOL)bloadmore
+                       bLoadMore:(BOOL)bLoadMore
                         complete:(void(^)(UITableView *table))complete
 {
     UITableView *table = [[UITableView alloc] initWithFrame:rect style:style];
@@ -31,6 +37,20 @@
     table.backgroundColor = Color_For_ControllerBackColor;
     table.separatorColor = Color_For_separatorColor;
     table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    
+    table.bPullDownEnable = bEnableRefreshHead;
+    table.bLoadMoreEnable = bLoadMore;
+    table.nNumOfPage = self.nNumOfPage;
+    if(bEnableRefreshHead) {
+        table.refreshDelegate = self;
+        table.refreshView = [[PGRefreshRotate alloc] initWithFrame:CGRectMake(0,-80,CGRectGetWidth(table.frame),80)];
+    }
+    
+    if(bLoadMore) {
+        table.refreshDelegate = self;
+        table.moreView = [[PGSimpleMoreView alloc] initWithFrame:CGRectMake(0, table.contentSize.height, CGRectGetWidth(table.frame), 40)];
+        table.moreView.hidden = YES;
+    }
     
     if(complete)
         complete(table);
@@ -87,6 +107,114 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark -
+- (void)willGetDataForScrollView:(UIScrollView *)scrollView
+{
+    [self getDataFromNet];
+}
+
+- (void)loadMoreData
+{
+}
+
+- (void)willLoadMoreDataForScrollView:(UIScrollView *)scrollView
+{
+    [self loadMoreData];
+}
+
+- (void)loadDataFinish:(UIScrollView *)scrollView
+{
+    scrollView.nPageIndex += 1;
+    scrollView.bLoading = NO;
+    
+    WEAKSELF
+    [self asyncOnMainQueue:^{
+        [weakSelf hideWaitingView];
+        [scrollView reRefreshData];
+        [scrollView endRefreshing];
+        [weakSelf showLoadMoreView:scrollView];
+    }];
+}
+
+- (void)loadDataError:(UIScrollView *)scrollView error:(NSString *)msg
+{
+    scrollView.bLoading = NO;
+    WEAKSELF
+    [self asyncOnMainQueue:^{
+        [weakSelf hideWaitingView];
+        [weakSelf showMsg:msg];
+        [scrollView endRefreshing];
+        [weakSelf showLoadMoreView:scrollView];
+    }];
+}
+
+- (void)loadMoreDataFinish:(UIScrollView *)scrollView
+{
+    scrollView.nPageIndex += 1;
+    scrollView.bLoadMoring = NO;
+    
+    WEAKSELF
+    [self asyncOnMainQueue:^{
+        [weakSelf hideWaitingView];
+        [scrollView reRefreshData];
+        [scrollView endLoadMoring];
+        [weakSelf showLoadMoreView:scrollView];
+    }];
+}
+
+- (void)loadMoreDataError:(UIScrollView *)scrollView error:(NSString *)msg
+{
+    scrollView.bLoadMoring = NO;
+    WEAKSELF
+    [self asyncOnMainQueue:^{
+        [weakSelf hideWaitingView];
+        [weakSelf showMsg:msg];
+        [scrollView endLoadMoring];
+        [weakSelf showLoadMoreView:scrollView];
+    }];
+}
+
+#pragma mark -
+- (void)showLoadMoreView:(UIScrollView *)scrollView
+{
+    if(scrollView.moreView != nil)
+    {
+        if(scrollView.nTotal > self.mDataArray.count)
+        {
+            scrollView.moreView.hidden = NO;
+            scrollView.bNeedLoadMoreData = YES;
+        }
+        else
+        {
+            scrollView.moreView.hidden = YES;
+            scrollView.bNeedLoadMoreData = NO;
+        }
+    }
+}
+
+
+#pragma mark - PGRefreshDelegate
+- (void)willStartRefresh:(UIScrollView *)scrollView
+{
+    [self willGetDataForScrollView:scrollView];
+}
+
+- (void)willStartLoadMore:(UIScrollView *)scrollView
+{
+    [self willLoadMoreDataForScrollView:scrollView];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [scrollView pgScrollViewDidScroll];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [scrollView pgScrollViewDidEndDragging];
 }
 
 @end

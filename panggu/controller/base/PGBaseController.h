@@ -87,6 +87,9 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 - (void)leftItemClicked:(id)sender;
 - (void)rightItemClicked:(id)sender;
 
+#pragma mark -
+- (void)asyncOnMainQueue:(dispatch_block_t)block;
+
 @end
 
 /*

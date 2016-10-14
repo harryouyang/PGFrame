@@ -14,6 +14,7 @@
 #import "PGPayController.h"
 #import "PGNetController.h"
 #import "PGH5JsController.h"
+#import "PGRefreshController.h"
 
 @implementation PGHomeController
 
@@ -67,6 +68,11 @@
 ////        url = @"http://192.168.1.206/webv3/html/NativeInteraction.html";
 //        [controller loadWebRequestWithURLString:url home:url];
     }
+    else if(indexPath.row == 5)
+    {
+        PGRefreshController *controller = [[PGRefreshController alloc] init];
+        [self pushNewViewController:controller];
+    }
 }
 
 #pragma mark -
@@ -74,7 +80,7 @@
 {
     [super createInitData];
     
-    [self.mDataArray addObjectsFromArray:@[@"消息提示、错误提示、遮罩层",@"网络请求模块",@"数据缓存、读取、删除",@"支付模块",@"H5交互"]];
+    [self.mDataArray addObjectsFromArray:@[@"消息提示、错误提示、遮罩层",@"网络请求模块",@"数据缓存、读取、删除",@"支付模块",@"H5交互",@"下拉刷新"]];
     
     self.mTableDataSource = [[PGTableDataSource alloc] initWithItems:self.mDataArray cellIdentifier:@"tableCellIndentifier" createCellBlock:^UITableViewCell *(NSString *cellIdentifier) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];

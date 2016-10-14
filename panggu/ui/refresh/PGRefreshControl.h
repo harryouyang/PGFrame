@@ -71,7 +71,7 @@
 
 #pragma mark -
 /**
- *  获取用户定义下拉的View
+ *  获取用户定义上提的View
  */
 - (UIView *)loadMoreView;
 

@@ -13,7 +13,7 @@
 
 @interface PGRefreshControl ()
 @property(nonatomic, assign)BOOL bPullDownEnable;
-@property(nonatomic, assign)BOOL BLoadMoreEnable;
+@property(nonatomic, assign)BOOL bLoadMoreEnable;
 
 @property(nonatomic, assign)BOOL bPullDownRefreshing;
 @property(nonatomic, assign)BOOL bLoadMoreRefreshing;
@@ -53,7 +53,7 @@
     self.originalTopInset = self.scrollView.contentInset.top;
     self.originalBottomInset = self.scrollView.contentInset.bottom;
     
-    self.refreshState = PGRefreshStateNormal;
+//    self.refreshState = PGRefreshStateNormal;
     
     [self configuraObserverWithScrollView:self.scrollView];
     
@@ -62,7 +62,7 @@
         [self.scrollView addSubview:self.refreshView];
     }
     
-    if (self.BLoadMoreEnable)
+    if (self.bLoadMoreEnable)
     {
         [self.scrollView addSubview:self.loadMoreView];
     }
@@ -197,7 +197,7 @@
     return YES;
 }
 
-- (BOOL)BLoadMoreEnable
+- (BOOL)bLoadMoreEnable
 {
     BOOL loadMored = YES;
     if ([self.delegate respondsToSelector:@selector(isLoadMoreRefreshed)]) {
@@ -313,7 +313,6 @@
 }
 
 #pragma mark - KVO
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
     if ([keyPath isEqualToString:@"contentOffset"])
@@ -321,7 +320,7 @@
         CGPoint contentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
         
         // 上提加载更多的逻辑方法
-        if (self.BLoadMoreEnable) {
+        if (self.bLoadMoreEnable) {
             int currentPostion = contentOffset.y;
             
             if (currentPostion > 0) {
@@ -383,7 +382,7 @@
         }
     } else if ([keyPath isEqualToString:@"contentSize"]) {
         CGSize contentSize = [[change valueForKey:NSKeyValueChangeNewKey] CGSizeValue];
-        if (self.BLoadMoreEnable && !self.noMoreDataForLoaded && !self.bPullDownRefreshing) {
+        if (self.bLoadMoreEnable && !self.noMoreDataForLoaded && !self.bPullDownRefreshing) {
             CGRect loadMoreViewFrame = self.loadMoreView.frame;
             loadMoreViewFrame.origin.y = contentSize.height;
             self.loadMoreView.frame = loadMoreViewFrame;
