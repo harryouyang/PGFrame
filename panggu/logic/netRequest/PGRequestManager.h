@@ -23,4 +23,10 @@
 //取消请求
 + (void)cancelClientWithTarget:(id)target type:(PGApiType)type;
 
+//文件上传
++ (void)startFile:(NSData *)data PostClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam;
+
+//文件下载
++ (void)startDownload:(PGApiType)type url:(NSString *)fileUrl local:(NSString *)localPath target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam;
+
 @end

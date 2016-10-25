@@ -54,15 +54,6 @@
 - (void)writeInfo;
 
 /*
- 创建文件路径
- */
-- (void)createFileDir;
-/*
- 创建用户路径
- */
-- (void)createUserDir;
-
-/*
  保存用户密码
  */
 - (void)savePsw:(NSString *)szPsw;

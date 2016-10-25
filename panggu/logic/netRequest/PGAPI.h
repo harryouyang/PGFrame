@@ -17,13 +17,15 @@ typedef NS_ENUM(NSUInteger, PGApiType) {
     API_TYPE_ORDER_PAY,//订单支付
     API_TYPE_APNS_DEVICE_TOKEN,//提交消息推送的deviceToken
     API_TYPE_VERSION_CHECK,//检测版本更新
-    
     API_TYPE_PATCH,//获取补丁
+    API_TYPE_FileDownload,//文件下载
 };
 
 @protocol PGApiDelegate <NSObject>
 @required
 - (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType;
+@optional
+- (void)downloadProgress:(NSProgress *)downloadProgress apiType:(PGApiType)apiType extendParam:(NSObject *)extendParam;
 @end
 
 @interface PGAPI : NSObject

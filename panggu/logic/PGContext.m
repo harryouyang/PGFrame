@@ -34,28 +34,54 @@ static PGContext *s_context = nil;
 
 + (NSString *)imagePath
 {
-    return [NSString stringWithFormat:@"%@/%@", kPathCache, PG_IMAGE_PATH];
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kPathCache, PG_IMAGE_PATH];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+    {
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    return path;
 }
 
 + (NSString *)dataPathForCache
 {
-    return [NSString stringWithFormat:@"%@/%@", kPathCache, PG_CACHES_DATA_PATH];
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kPathCache, PG_CACHES_DATA_PATH];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+    {
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    return path;
 }
 
 + (NSString *)userPathForCache
 {
-    if([PGContext shareInstance].userAccount == nil && [PGContext shareInstance].userAccount.length > 0)
+    if([PGContext shareInstance].userAccount != nil && [PGContext shareInstance].userAccount.length > 0)
     {
-        return [NSString stringWithFormat:@"%@/user/%@", kPathCache, [NSString MD5Encrypt:[PGContext shareInstance].userAccount]];
+        NSString *path = [NSString stringWithFormat:@"%@/user", kPathCache];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+        {
+            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
+        }
+        path = [NSString stringWithFormat:@"%@/%@", path, [NSString MD5Encrypt:[PGContext shareInstance].userAccount]];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+        {
+            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
+        }
+        return path;
     }
     return nil;
 }
 
 + (NSString *)userPathDocument
 {
-    if([PGContext shareInstance].userAccount == nil && [PGContext shareInstance].userAccount.length > 0)
+    if([PGContext shareInstance].userAccount != nil && [PGContext shareInstance].userAccount.length > 0)
     {
-        return [NSString stringWithFormat:@"%@/%@",kPathDocument, [NSString MD5Encrypt:[PGContext shareInstance].userAccount]];
+        NSString *path = [NSString stringWithFormat:@"%@/%@",kPathDocument, [NSString MD5Encrypt:[PGContext shareInstance].userAccount]];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+        {
+            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
+        }
+        
+        return path;
     }
     return nil;
 }
@@ -83,46 +109,9 @@ static PGContext *s_context = nil;
     [defaults synchronize];
 }
 
-- (void)createFileDir
-{
-    NSString *path = [PGContext imagePath];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
-    }
-    
-    path = [PGContext dataPathForCache];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
-    }
-    
-    [self createUserDir];
-}
-
-- (void)createUserDir
-{
-    if(self.userAccount != nil && self.userAccount.length > 0)
-    {
-        NSString *path = [PGContext userPathDocument];
-        if(![[NSFileManager defaultManager] fileExistsAtPath:path])
-        {
-            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
-        }
-        
-        path = [PGContext userPathForCache];
-        if(![[NSFileManager defaultManager] fileExistsAtPath:path])
-        {
-            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
-        }
-    }
-}
-
 #pragma mark -
 - (void)savePsw:(NSString *)szPsw
 {
-    [self createFileDir];
-    
     NSString *path = [[PGContext userPathDocument] stringByAppendingPathComponent:PSWF];
     const char* chPsw = [szPsw UTF8String];
     int nLen = (int)strlen(chPsw);

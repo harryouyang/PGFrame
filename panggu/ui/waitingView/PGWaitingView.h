@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PGWaitingView : UIView
+@property(nonatomic, assign)NSInteger nShowNumCount;
 
 - (void)showText:(NSString *)text;
 

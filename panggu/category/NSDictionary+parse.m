@@ -60,6 +60,10 @@
             }
         }
     }
+    if([value isKindOfClass:[NSNumber class]] && type == EDictionTypeNSString)
+    {
+        value = @([value longLongValue]).stringValue;
+    }
     return value;
 }
 

@@ -9,7 +9,7 @@
 #import "UIAlertView+action.h"
 #import <objc/runtime.h>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0
 //定义常量 必须是C语言字符串
 static char *actionNameKey = "actionNameKey";
 @implementation UIAlertView (action)

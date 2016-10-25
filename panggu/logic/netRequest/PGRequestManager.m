@@ -136,6 +136,54 @@ static PGRequestManager *s_requestManager = nil;
     [client startRequest];
 }
 
++ (void)startFile:(NSData *)data PostClient:(PGApiType)type param:(NSDictionary *)param target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam
+{
+    PGRequestManager *manger = [PGRequestManager shareInstance];
+    PGHttpClient *client = [[PGHttpClient alloc] initWithType:type requestParam:param];
+    client.requestMethod = @"POST";
+    client.apiDelegate = target;
+    client.delegate = manger;
+    client.extendParam = extendParam;
+    
+    //需要缓存的接口才做缓存处理
+    if([manger bEnableStrategy:type])
+    {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:@(type).stringValue forKey:@"apiType"];
+        [dic addEntriesFromDictionary:param];
+        NSString *key = [NSString MD5Encrypt:[NSString jsonStringWithDictionary:dic]];
+        NSString *dataString = [manger cacheSringWithKey:key];
+        if(dataString)
+        {
+            [client parseData:dataString];
+            return;
+        }
+    }
+    
+    if(target != nil)
+        [manger addClient:client target:target tag:@(type).stringValue];
+    else
+        [manger addClient:client target:manger tag:@(type).stringValue];
+    
+    [client startPostImageFileData];
+}
+
++ (void)startDownload:(PGApiType)type url:(NSString *)fileUrl local:(NSString *)localPath target:(id<PGApiDelegate>)target extendParam:(NSObject *)extendParam
+{
+    PGRequestManager *manger = [PGRequestManager shareInstance];
+    PGHttpClient *client = [[PGHttpClient alloc] initWithType:type requestParam:nil];
+    client.apiDelegate = target;
+    client.delegate = manger;
+    client.extendParam = extendParam;
+    
+    if(target != nil)
+        [manger addClient:client target:target tag:@(type).stringValue];
+    else
+        [manger addClient:client target:manger tag:@(type).stringValue];
+    
+    [client startDownload:fileUrl local:localPath];
+}
+
 #pragma mark - PGHttpClientDelegate
 - (void)dataRequestSuccess:(PGResultObject *)resultObj client:(PGHttpClient *)client
 {
@@ -150,6 +198,14 @@ static PGRequestManager *s_requestManager = nil;
     if(client.apiDelegate)
     {
         [client.apiDelegate dataRequestFinish:resultObj apiType:client.apiType];
+    }
+}
+
+- (void)downloadProgress:(NSProgress *)downloadProgress client:(PGHttpClient *)client
+{
+    if(client.apiDelegate)
+    {
+        [client.apiDelegate downloadProgress:downloadProgress apiType:client.apiType extendParam:client.extendParam];
     }
 }
 

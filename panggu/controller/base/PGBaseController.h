@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PGUIKitUtil.h"
 #import "UIViewController+message.h"
+#import "PGRequestManager.h"
+#import "PGErrorCode.h"
 
 /*
  等待视图的样式类型
@@ -52,6 +54,11 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 - (void)createSubViews;
 
 /*
+ 创建子视图完成
+ */
+- (void)didCreateSubViews;
+
+/*
  重新加载
  */
 - (void)reloadData;
@@ -89,6 +96,39 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 
 #pragma mark -
 - (void)asyncOnMainQueue:(dispatch_block_t)block;
+
+#pragma mark keyboard
+@property(nonatomic, assign)BOOL bkeyboardVisible;
+@property(nonatomic, assign)CGRect keyboardFrame;
+@property(nonatomic, assign)float nKboffset;
+@property(nonatomic, assign)CGPoint point;
+@property(nonatomic, assign)float noffset;
+
+- (void)addKeyboardObserver;
+
+- (void)removeKeyboardObserver;
+
+- (BOOL)keyboardWillShow:(NSNotification *)noti;
+
+- (BOOL)keyboardWillHide:(NSNotification *)noti;
+
+- (BOOL)keyboardFrameWillChange:(NSNotification*)noti;
+
+#pragma mark request data
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param;
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam;
+
+- (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param;
+- (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param extendParma:(NSObject *)extendParam;
+
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath;
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath tag:(NSUInteger)tag;
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath tag:(NSUInteger)tag extendParma:(NSObject *)extendParam;
+- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType;
+
+#pragma mark -
+- (void)addSimpleTapGesture:(id<UIGestureRecognizerDelegate>)gestureDelegate;
+- (void)viewhandleSingleTap:(UITapGestureRecognizer *)gesture;
 
 @end
 

@@ -59,7 +59,7 @@
         }
         [self presentViewController:alertController animated:YES completion:nil];
     } else {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_8_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:actionTitles, nil];
         alert.alertActionBlock = block;
         [alert show];
@@ -67,7 +67,7 @@
     }
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_8_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_8_0
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.alertActionBlock)

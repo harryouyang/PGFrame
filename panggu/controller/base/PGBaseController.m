@@ -12,14 +12,32 @@
 #import "PGCustomWaitingView.h"
 #import "PGRotaionWaitingView.h"
 
-@interface PGBaseController ()
+#define KEYBOARDFRAMEWILLCHANGE2         @"KBWFC"
+
+@interface PGBaseController ()<PGApiDelegate,UIGestureRecognizerDelegate>
 @property(nonatomic, strong)NSMutableDictionary *allErrorView;
 
 @property(nonatomic, strong)PGWaitingView *waitingView;
 @property(nonatomic, assign)BOOL bShowProgressView;
+
+@property(nonatomic, strong)NSMutableDictionary *apiKeyDic;
+
+@property(nonatomic, assign)BOOL bDidSubViewCreate;
 @end
 
 @implementation PGBaseController
+
+- (void)dealloc
+{
+    [self cancelTask];
+}
+
+- (void)cancelTask {
+    for(NSNumber *typeNum in self.apiKeyDic.allValues)
+    {
+        [PGRequestManager cancelClientWithTarget:self type:typeNum.integerValue];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +48,17 @@
                                   NSFontAttributeName:[PGUIKitUtil systemFontOfSize:17.0]}];
     
     [self createInitData];
-    [self createSubViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(!self.bDidSubViewCreate)
+    {
+        [self createSubViews];
+        [self didCreateSubViews];
+    }
 }
 
 - (NSMutableDictionary *)allErrorView {
@@ -60,6 +88,11 @@
     {
         return [UIApplication sharedApplication].keyWindow.frame.size.height;
     }
+}
+
+- (CGRect)mainFrame
+{
+    return [UIApplication sharedApplication].keyWindow.frame;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -143,6 +176,11 @@
 }
 
 - (void)createSubViews
+{
+    self.bDidSubViewCreate = YES;
+}
+
+- (void)didCreateSubViews
 {
 }
 
@@ -256,6 +294,184 @@
 
 - (void)rightItemClicked:(id)sender
 {
+}
+
+#pragma mark - keyboard
+#pragma mark -
+- (void)addKeyboardObserver
+{
+    if(IOS8_LATER)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardDidChangeFrameNotification object:nil];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+        if([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue]>4)
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardFrameWillChange:) name:KEYBOARDFRAMEWILLCHANGE2 object:nil];
+    }
+}
+
+- (void)removeKeyboardObserver
+{
+    if(IOS8_LATER)
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidChangeFrameNotification object:nil];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+        if([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue]>4)
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:KEYBOARDFRAMEWILLCHANGE2 object:nil];
+    }
+}
+
+- (BOOL)keyboardWillShow:(NSNotification *)noti
+{
+    CGRect frame=[(NSValue*)[[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    if(IOS8_LATER)
+    {
+        CGRect rect = [(NSValue *)[[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        if(rect.size.height == 0 || _bkeyboardVisible)
+            return NO;
+        
+        _keyboardFrame = rect;
+        _bkeyboardVisible = YES;
+        _nKboffset = _keyboardFrame.size.height;
+    }
+    else
+    {
+        if(_bkeyboardVisible)
+        {
+            if(frame.size.height != _nKboffset)
+                [[NSNotificationCenter defaultCenter] postNotificationName:KEYBOARDFRAMEWILLCHANGE2 object:nil userInfo:[noti userInfo]];
+            return NO;
+        }
+        _keyboardFrame = [(NSValue *)[[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        
+        _bkeyboardVisible = YES;
+        _nKboffset = _keyboardFrame.size.height;
+        
+    }
+    
+    return YES;
+}
+
+- (BOOL)keyboardWillHide:(NSNotification *)noti
+{
+    if(_bkeyboardVisible==NO)
+        return NO;
+    _bkeyboardVisible = NO;
+    return YES;
+}
+
+- (BOOL)keyboardFrameWillChange:(NSNotification*)noti
+{
+    CGRect frame=[(NSValue*)[[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    if(IOS8_LATER)
+    {
+        if(frame.size.height != 0 && _bkeyboardVisible && CGRectEqualToRect(_keyboardFrame,frame) != YES)
+        {
+            _keyboardFrame = frame;
+            _nKboffset = _keyboardFrame.size.height;
+            return YES;
+        }
+    }
+    else
+    {
+        if(CGRectEqualToRect(_keyboardFrame,frame)!=YES)
+        {
+            _keyboardFrame = frame;
+            _nKboffset = _keyboardFrame.size.height;
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+#pragma mark - request data
+- (NSMutableDictionary *)apiKeyDic
+{
+    if(_apiKeyDic == nil) {
+        _apiKeyDic = [[NSMutableDictionary alloc] init];
+    }
+    return _apiKeyDic;
+}
+
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param
+{
+    [self startRequestData:apiType param:param extendParma:nil];
+}
+
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam
+{
+    [self showWaitingView:nil];
+    self.waitingView.nShowNumCount += 1;
+    [self.apiKeyDic setObject:[NSNumber numberWithInteger:apiType] forKey:@(apiType).stringValue];
+    [PGRequestManager startPostClient:apiType param:param target:self extendParam:extendParam];
+}
+
+- (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param
+{
+    [self startUploadFileData:apiType data:data param:param extendParma:nil];
+}
+
+- (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param extendParma:(NSObject *)extendParam
+{
+    [self showWaitingView:nil];
+    self.waitingView.nShowNumCount += 1;
+    [self.apiKeyDic setObject:[NSNumber numberWithInteger:apiType] forKey:@(apiType).stringValue];
+    [PGRequestManager startFile:data PostClient:apiType param:param target:self extendParam:extendParam];
+}
+
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath
+{
+    [self startDownload:fileUrl local:localPath tag:0];
+}
+
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath tag:(NSUInteger)tag
+{
+    [self startDownload:fileUrl local:localPath tag:tag extendParma:nil];
+}
+
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath tag:(NSUInteger)tag extendParma:(NSObject *)extendParam
+{
+    NSInteger apiTag = API_TYPE_FileDownload+tag;
+    [self.apiKeyDic setObject:[NSNumber numberWithInteger:apiTag] forKey:@(apiTag).stringValue];
+    [PGRequestManager startDownload:apiTag url:fileUrl local:localPath target:self extendParam:extendParam];
+}
+
+- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.waitingView.nShowNumCount -= 1;
+        [self hideWaitingView];
+        [self requestDataFinish:resultObj apiType:apiType];
+    });
+}
+
+- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+{
+}
+
+#pragma mark -
+- (void)addSimpleTapGesture:(id<UIGestureRecognizerDelegate>)gestureDelegate
+{
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewhandleSingleTap:)];
+    singleTap.delegate = gestureDelegate;
+    [self.view addGestureRecognizer:singleTap];
+}
+
+- (void)viewhandleSingleTap:(UITapGestureRecognizer *)gesture
+{
+    [self.view endEditing:YES];
 }
 
 @end

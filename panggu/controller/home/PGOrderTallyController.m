@@ -34,7 +34,7 @@
     self.payParamBlock = ^(NSString *orderId, PGPayType payType) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf showWaitingView:nil];
-            [PGRequestManager startPostClient:API_TYPE_ORDER_PAY param:@{@"orderId":orderId} target:weakSelf extendParam:[NSNumber numberWithInteger:payType]];
+            [weakSelf startRequestData:API_TYPE_ORDER_PAY param:@{@"orderId":orderId} extendParma:[NSNumber numberWithInteger:payType]];
         });
     };
     
@@ -62,7 +62,7 @@
 {
     //创建订单
     [self showWaitingView:nil];
-    [PGRequestManager startPostClient:API_TYPE_CREATE_ORDER param:@{@"money":@"12.0",@"product":@"乒乓球"} target:self extendParam:nil];
+    [self startRequestData:API_TYPE_CREATE_ORDER param:@{@"money":@"12.0",@"product":@"乒乓球"}];
 }
 
 #pragma mark -

@@ -11,8 +11,10 @@
 
 #ifdef DEBUG
 #define PGLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define PRLog(fmt, ...) printf(("\n%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 #define PGLog(...)
+#define PRLog(...)
 #endif
 
 #ifdef __OPTIMIZE__

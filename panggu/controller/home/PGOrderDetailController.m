@@ -37,7 +37,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf showWaitingView:nil];
             //去服务器端通过订单号与支付方式获取支付所需的参数
-            [PGRequestManager startPostClient:API_TYPE_ORDER_PAY param:@{@"orderId":orderId} target:weakSelf extendParam:[NSNumber numberWithInteger:payType]];
+            [weakSelf startRequestData:API_TYPE_ORDER_PAY param:@{@"orderId":orderId} extendParma:[NSNumber numberWithInteger:payType]];
         });
     };
     

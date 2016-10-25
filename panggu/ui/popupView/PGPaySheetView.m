@@ -80,7 +80,7 @@
 - (void)showInView:(UIViewController *)Sview
 {
     if(Sview==nil){
-        [[UIApplication sharedApplication].delegate.window.rootViewController.view addSubview:self];
+        [[UIApplication sharedApplication].delegate.window addSubview:self];
     }else{
         [Sview.view addSubview:self];
     }

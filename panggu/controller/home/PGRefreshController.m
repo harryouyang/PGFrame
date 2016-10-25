@@ -19,8 +19,6 @@
 {
     [super viewDidLoad];
     self.title = @"下拉刷新";
-    
-    [self getDataFromNet];
 }
 
 #pragma mark -
@@ -41,6 +39,11 @@
     } configCellBlock:^(UITableViewCell *cell, NSObject *item) {
         cell.textLabel.text = (NSString *)item;
     }];
+}
+
+- (void)didCreateSubViews
+{
+    [self getDataFromNet];
 }
 
 - (void)getDataFromNet

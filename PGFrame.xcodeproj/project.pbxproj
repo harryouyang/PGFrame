@@ -88,9 +88,12 @@
 		11C877791D96BE4000546910 /* UIColor+darken.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C877781D96BE4000546910 /* UIColor+darken.m */; };
 		11C8777C1D96C67F00546910 /* PGPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777B1D96C67F00546910 /* PGPayManager.m */; };
 		11C8777F1D96C7DD00546910 /* PGBaseController+pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */; };
+		E819649B8D841F474E1EFC90 /* libPods-PGFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF69EC83EB3AFC6A3584BC9 /* libPods-PGFrame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0654A0A7635C9105FA3DC127 /* Pods-PGFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGFrame.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame.release.xcconfig"; sourceTree = "<group>"; };
+		09AEF4ADA982D24319A1CC0C /* Pods-PGFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame.debug.xcconfig"; sourceTree = "<group>"; };
 		112D32EB1D9CADC900CDB70C /* PGH5JsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGH5JsController.h; sourceTree = "<group>"; };
 		112D32EC1D9CADC900CDB70C /* PGH5JsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGH5JsController.m; sourceTree = "<group>"; };
 		1134A3DD1D9225C00030B728 /* PGFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +214,7 @@
 		11A1C56A1D93DD200069E490 /* NSString+ruleCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ruleCheck.m"; sourceTree = "<group>"; };
 		11A1C56C1D93DE8F0069E490 /* PGBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBaseObj.h; sourceTree = "<group>"; };
 		11A1C56D1D93DE8F0069E490 /* PGBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBaseObj.m; sourceTree = "<group>"; };
+		11C858671DBE365A0056EE2E /* PGErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGErrorCode.h; sourceTree = "<group>"; };
 		11C877541D967B5300546910 /* PGTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableDataSource.h; sourceTree = "<group>"; };
 		11C877551D967B5300546910 /* PGTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableDataSource.m; sourceTree = "<group>"; };
 		11C877571D967D9D00546910 /* PGTableBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableBaseController.h; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		11C8777B1D96C67F00546910 /* PGPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPayManager.m; sourceTree = "<group>"; };
 		11C8777D1D96C7DD00546910 /* PGBaseController+pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGBaseController+pay.h"; sourceTree = "<group>"; };
 		11C8777E1D96C7DD00546910 /* PGBaseController+pay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGBaseController+pay.m"; sourceTree = "<group>"; };
+		ACF69EC83EB3AFC6A3584BC9 /* libPods-PGFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PGFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E819649B8D841F474E1EFC90 /* libPods-PGFrame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +262,8 @@
 				1134A41B1D922C0A0030B728 /* panggu */,
 				1134A3DF1D9225C00030B728 /* PGFrame */,
 				1134A3DE1D9225C00030B728 /* Products */,
+				55A1C9DA74A7F65FD055BE87 /* Pods */,
+				96BCAAE0606D6F0B5FB1058F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -389,6 +397,7 @@
 				11C877551D967B5300546910 /* PGTableDataSource.m */,
 				11C8777A1D96C67F00546910 /* PGPayManager.h */,
 				11C8777B1D96C67F00546910 /* PGPayManager.m */,
+				11C858671DBE365A0056EE2E /* PGErrorCode.h */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -618,6 +627,23 @@
 			path = refresh;
 			sourceTree = "<group>";
 		};
+		55A1C9DA74A7F65FD055BE87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09AEF4ADA982D24319A1CC0C /* Pods-PGFrame.debug.xcconfig */,
+				0654A0A7635C9105FA3DC127 /* Pods-PGFrame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		96BCAAE0606D6F0B5FB1058F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACF69EC83EB3AFC6A3584BC9 /* libPods-PGFrame.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -625,9 +651,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1134A3F41D9225C00030B728 /* Build configuration list for PBXNativeTarget "PGFrame" */;
 			buildPhases = (
+				06411C192EF1266A8A7E29D3 /* [CP] Check Pods Manifest.lock */,
 				1134A3D91D9225C00030B728 /* Sources */,
 				1134A3DA1D9225C00030B728 /* Frameworks */,
 				1134A3DB1D9225C00030B728 /* Resources */,
+				F7B28E0B350ADEAFD21A6C8A /* [CP] Embed Pods Frameworks */,
+				75D9026FFE559D64A4236484 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -698,6 +727,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06411C192EF1266A8A7E29D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		75D9026FFE559D64A4236484 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7B28E0B350ADEAFD21A6C8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1134A3D91D9225C00030B728 /* Sources */ = {
@@ -873,6 +950,7 @@
 		};
 		1134A3F51D9225C00030B728 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09AEF4ADA982D24319A1CC0C /* Pods-PGFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -886,6 +964,7 @@
 		};
 		1134A3F61D9225C00030B728 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0654A0A7635C9105FA3DC127 /* Pods-PGFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";

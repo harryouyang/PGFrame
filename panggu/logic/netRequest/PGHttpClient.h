@@ -14,6 +14,8 @@
 @required
 - (void)dataRequestSuccess:(PGResultObject *)resultObj client:(PGHttpClient *)client;
 - (void)dataRequestFailed:(PGResultObject *)resultObj client:(PGHttpClient *)client;
+@optional
+- (void)downloadProgress:(NSProgress *)downloadProgress client:(PGHttpClient *)client;
 @end
 
 /*
@@ -32,6 +34,11 @@
  请求策略所用的key值，缓存接口数据与读取接口数据时用。
  */
 @property(nonatomic, copy)NSString *strategyKey;
+
+/*
+ 上传文件时的二进制数据
+ */
+@property(nonatomic, strong)NSData *fileData;
 
 /**
  type: API接口类型
@@ -53,5 +60,15 @@
  解析接口返回的json字符数据
  */
 - (void)parseData:(NSString *)szString;
+
+/*
+ 开始上传数据
+ */
+- (void)startPostImageFileData;
+
+/*
+ 开始下载文件
+ */
+- (void)startDownload:(NSString *)fileUrl local:(NSString *)localPath;
 
 @end

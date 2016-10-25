@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 //UI 布局
-#define PGHeightWith640(height) PGHeightC(640.0, height)
-#define PGHeightWith750(height) PGHeightC(750.0, height)
-#define PGHeightWith1080(height) PGHeightC(1080.0, height)
+#define PGHeightWith640(height) PGHeight(640.0, height)
+#define PGHeightWith750(height) PGHeight(750.0, height)
+#define PGHeightWith1080(height) PGHeight(1080.0, height)
 
-CG_INLINE CGFloat PGHeightC(CGFloat reference, CGFloat height)
+CG_INLINE CGFloat PGHeight(CGFloat reference, CGFloat height)
 {
     CGFloat adapterHeight = height;
     

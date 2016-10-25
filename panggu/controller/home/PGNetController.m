@@ -13,7 +13,7 @@
 #import "PGUIKitUtil.h"
 #import "PGRequestManager.h"
 
-@interface PGNetController ()<PGApiDelegate>
+@interface PGNetController ()
 
 @end
 
@@ -36,7 +36,7 @@
         [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
     }
     
-    [PGRequestManager startPostClient:API_TYPE_PRODUCT_LIST param:nil target:self extendParam:nil];
+    [self startRequestData:API_TYPE_PRODUCT_LIST param:nil];
     
     //for test
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -44,11 +44,9 @@
     });
 }
 
-#pragma mark - PGApiDelegate
-- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
 {
     [self hideWaitingView];
-    
 }
 
 #pragma mark -

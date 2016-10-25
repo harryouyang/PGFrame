@@ -71,11 +71,6 @@
 {
     float nOriginY = self.nNavMaxY;
     self.webView.frame = CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY);
-//    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY)];
-//    _webView.delegate = self;
-//    _webView.scalesPageToFit = YES;
-//    _webView.scrollView.bounces = NO;
-//    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
 }
 
