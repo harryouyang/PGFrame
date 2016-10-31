@@ -25,6 +25,14 @@
             urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/u/user/regiest"];
             break;
         }
+        case API_TYPE_PATCH: {
+            urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/s/system/apppatch"];
+            break;
+        }
+        case API_TYPE_VERSION_CHECK: {
+            urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/s/system/appversion"];
+            break;
+        }
         default:
             break;
     }

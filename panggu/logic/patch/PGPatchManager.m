@@ -92,7 +92,7 @@ static PGPatchManager *s_patchManager = nil;
         {
             if([newobj.mFixID compare:obj.mFixID] != NSOrderedSame)
             {
-                [self.arrayHots addObject:obj];
+                [self.arrayHots addObject:newobj];
             }
         }
     }
@@ -141,6 +141,8 @@ static PGPatchManager *s_patchManager = nil;
             //保存新的补丁
             [self saveHotsToLocal];
         }
+        
+        [PGRequestManager cancelClientWithTarget:self type:apiType];
     }
 }
 

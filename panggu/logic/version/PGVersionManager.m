@@ -100,6 +100,9 @@
                 }
             } cancelActionTitle:@"更新" otherActionsTitles:nil];
         }
+        
+        //释放内存空间
+        [PGRequestManager cancelClientWithTarget:self type:apiType];
     }
     else
     {
@@ -108,6 +111,11 @@
         {
             self.nRetryCount -= 1;
             [self getVersionInfo];
+        }
+        else
+        {
+            //释放内存空间
+            [PGRequestManager cancelClientWithTarget:self type:apiType];
         }
     }
 }

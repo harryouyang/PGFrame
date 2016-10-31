@@ -50,8 +50,6 @@
 {
     if(self.mState == PGLoadMoreState_Loading)
     {
-        CGFloat offset = MIN(scrollView.contentOffset.y, scrollView.contentSize.height+self.mLoadingStopInset);
-        offset = MAX(offset, 0);
         scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, self.mLoadingStopInset, 0.0f);
     }
     else

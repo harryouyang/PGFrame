@@ -36,17 +36,10 @@
         [self showWaitingView:nil viewStyle:EWaitingViewStyle_Rotation];
     }
     
-    [self startRequestData:API_TYPE_PRODUCT_LIST param:nil];
-    
     //for test
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self hideWaitingView];
     });
-}
-
-- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
-{
-    [self hideWaitingView];
 }
 
 #pragma mark -
