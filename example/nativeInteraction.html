@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+<script>
+
+    //业务场景
+    if(typeof ServiceType == "undefined"){
+        var ServiceType = {
+            ServiceType_Type1: 1,
+            ServiceType_Type2: 2,
+            ServiceType_Type3: 3,
+            ServiceType_Type4: 4,
+            ServiceType_Type5: 5,
+            ServiceType_Type6: 6
+        }
+    }
+
+    //JS --> Native
+    //param 为json字符串
+    function wakeUpNative(type, param) {
+        var str = "{\"type\":"+type+",\"param\":\""+param+"\"}";
+        window.UCJSObject.wakeUpNativeObject(str)
+    }
+
+    //Native --> JS
+    function wakeUpJS(type, param) {
+
+        switch (type) {
+            case ServiceType.ServiceType_Type1: {
+                alert("apptojs");
+                break;
+            }
+            case ServiceType.ServiceType_Type2: {
+                alert(param);
+                break;
+            }
+        }
+    }
+
+</script>
+<body>
+    <div data-role="page" id="pageone">
+    <div data-role="header">
+        <h1>欢迎访问我的主页</h1>
+    </div>
+
+    <div>
+        <button type="button" onclick="javascript:wakeUpNative(ServiceType.ServiceType_Type1,'此处为json格式的数据');">Click Me!</button>
+    </div>
+
+    <div>
+        <button type="button" onclick="javascript:wakeUpNative(ServiceType.ServiceType_Type2,'此处为json格式的数据');">Click Me!</button>
+    </div>
+
+</div>
+
+</body>
+</html>
