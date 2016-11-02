@@ -27,29 +27,29 @@
 #pragma mark -
 + (NSInteger)numYearFromDate:(NSDate *)sDate toDate:(NSDate *)eDate
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [gregorian components:NSYearCalendarUnit fromDate:sDate toDate:eDate options:0];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitYear fromDate:sDate toDate:eDate options:0];
     return [comps year];
 }
 
 + (NSInteger)numMonthFromDate:(NSDate *)sDate toDate:(NSDate *)eDate
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [gregorian components:NSMonthCalendarUnit fromDate:sDate toDate:eDate options:0];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitMonth fromDate:sDate toDate:eDate options:0];
     return [comps month];
 }
 
 + (NSInteger)numDayFromDate:(NSDate *)sDate toDate:(NSDate *)eDate
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [gregorian components:NSDayCalendarUnit fromDate:sDate toDate:eDate options:0];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitDay fromDate:sDate toDate:eDate options:0];
     return [comps day];
 }
 
 #pragma mark -
 - (NSDate *)cc_dateByMovingToBeginningOfDay
 {
-    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents* parts = [[NSCalendar currentCalendar] components:flags fromDate:self];
     [parts setHour:0];
     [parts setMinute:0];
@@ -59,7 +59,7 @@
 
 - (NSDate *)cc_dateByMovingToEndOfDay
 {
-    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents* parts = [[NSCalendar currentCalendar] components:flags fromDate:self];
     [parts setHour:23];
     [parts setMinute:59];
@@ -70,7 +70,7 @@
 - (NSDate *)cc_dateByMovingToFirstDayOfTheMonth
 {
     NSDate *d = nil;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSMonthCalendarUnit startDate:&d interval:NULL forDate:self];
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&d interval:NULL forDate:self];
     NSAssert1(ok, @"Failed to calculate the first day the month based on %@", self);
     return d;
 }
@@ -91,17 +91,17 @@
 
 - (NSDateComponents *)cc_componentsForMonthDayAndYear
 {
-    return [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
+    return [[NSCalendar currentCalendar] components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self];
 }
 
 - (NSUInteger)cc_weekday
 {
-    return [[NSCalendar currentCalendar] ordinalityOfUnit:NSDayCalendarUnit inUnit:NSWeekCalendarUnit forDate:self];
+    return [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitWeekOfMonth forDate:self];
 }
 
 - (NSUInteger)cc_numberOfDaysInMonth
 {
-    return [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:self].length;
+    return [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self].length;
 }
 
 @end
