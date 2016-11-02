@@ -70,8 +70,7 @@
 - (NSDate *)cc_dateByMovingToFirstDayOfTheMonth
 {
     NSDate *d = nil;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&d interval:NULL forDate:self];
-    NSAssert1(ok, @"Failed to calculate the first day the month based on %@", self);
+    [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&d interval:NULL forDate:self];
     return d;
 }
 

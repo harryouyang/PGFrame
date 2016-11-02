@@ -20,11 +20,8 @@
 static NSString *appKey = @"";
 static NSString *channel = @"AppStore";
 
-#ifdef DEBUG
-static BOOL isProduction = FALSE;
-#else
+//是否是生产环境
 static BOOL isProduction = TRUE;
-#endif
 
 @interface PGApnsManager ()
 @property(nonatomic, strong)PGMessageObject *msgObj;
