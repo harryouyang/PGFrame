@@ -25,7 +25,7 @@
 #define STRONGSELF  typeof(weakSelf) __strong strongSelf = weakSelf;
 
 //需要横屏或者竖屏，获取屏幕宽度与高度
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000
 
 #define SCREEN_WIDTH        ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.width)
 #define SCREENH_HEIGHT      ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.height)
@@ -37,6 +37,8 @@
 #define SCREEN_SIZE     [UIScreen mainScreen].bounds.size
 #define SCREEN_SCALE    [UIScreen mainScreen].scale
 #endif
+
+#define SINGLEWIDTH     1.0f/SCREEN_SCALE
 
 //沙箱路径
 #define kPathTemp       NSTemporaryDirectory()
@@ -56,6 +58,12 @@
 #define iPhone6_6s  [[UIScreen mainScreen] bounds].size.width == 375.0f && [[UIScreen mainScreen] bounds].size.height == 667.0f
 // 判断是否为iPhone 6Plus/6sPlus
 #define iPhone6Plus_6sPlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+
+#define ISIPHONE4   ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(320, 480), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define ISIPHONE4S   ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define ISSCREEN35      (ISIPHONE4||ISIPHONE4S)
 
 //获取系统版本
 #define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]

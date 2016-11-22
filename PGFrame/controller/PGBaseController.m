@@ -173,6 +173,7 @@
 
 - (void)freeMemory
 {
+    self.bDidSubViewCreate = NO;
 }
 
 - (void)createSubViews
@@ -407,13 +408,25 @@
 
 - (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param
 {
-    [self startRequestData:apiType param:param extendParma:nil];
+    [self startRequestData:apiType param:param isShowWaiting:YES];
 }
 
 - (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam
 {
-    [self showWaitingView:nil];
-    self.waitingView.nShowNumCount += 1;
+    [self startRequestData:apiType param:param extendParma:extendParam isShowWaiting:YES];
+}
+
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param isShowWaiting:(BOOL)isShowWaiting
+{
+    [self startRequestData:apiType param:param extendParma:nil isShowWaiting:isShowWaiting];
+}
+
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam isShowWaiting:(BOOL)isShowWaiting
+{
+    if(isShowWaiting) {
+        [self showWaitingView:nil];
+        self.waitingView.nShowNumCount += 1;
+    }
     [self.apiKeyDic setObject:[NSNumber numberWithInteger:apiType] forKey:@(apiType).stringValue];
     [PGRequestManager startPostClient:apiType param:param target:self extendParam:extendParam];
 }
@@ -567,26 +580,28 @@
         }
     }
     
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
-    bgView.backgroundColor = [UIColor clearColor];
-    [bgView addSubview:self.waitingView];
+    if(!self.bShowProgressView)
+    {
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+        bgView.backgroundColor = [UIColor clearColor];
+        [bgView addSubview:self.waitingView];
     
-    [self.view addSubview:bgView];
+        [self.view addSubview:bgView];
     
-    self.bShowProgressView = YES;
+        self.bShowProgressView = YES;
+    }
     
     [self.waitingView showText:text];
     self.waitingView.center = self.waitingView.superview.center;
 }
 
 - (void)hideWaitingView {
-    if(self.waitingView) {
+    if(self.waitingView && self.waitingView.nShowNumCount < 1) {
         [self.waitingView.superview removeFromSuperview];
         self.bShowProgressView = NO;
     }
 }
 
 @end
-
 
 

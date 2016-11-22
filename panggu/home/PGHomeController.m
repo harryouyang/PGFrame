@@ -18,6 +18,14 @@
 
 @implementation PGHomeController
 
+- (void)freeMemory
+{
+    [super freeMemory];
+    
+    [self.mTableView removeFromSuperview];
+    self.mTableView = nil;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

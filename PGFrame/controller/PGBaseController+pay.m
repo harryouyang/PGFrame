@@ -142,4 +142,9 @@ static char *payOrderIdNameKey = "payOrderId";
     }
 }
 
+- (void)cancelPay
+{
+    
+}
+
 @end

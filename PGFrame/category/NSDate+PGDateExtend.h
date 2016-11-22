@@ -39,4 +39,6 @@
 - (NSUInteger)cc_weekday;
 - (NSUInteger)cc_numberOfDaysInMonth;
 
+#pragma mark -
++ (NSDate *)getPriousorLaterDateFromDate:(NSDate *)date withMonth:(int)month;
 @end

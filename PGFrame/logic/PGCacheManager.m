@@ -15,7 +15,7 @@
 
 + (BOOL)cacheData:(NSObject *)data type:(PGCacheType)type
 {
-    return [PGCacheManager  cacheData:data type:type param:nil];
+    return [PGCacheManager cacheData:data type:type param:nil];
 }
 
 + (BOOL)cacheData:(NSObject *)data type:(PGCacheType)type param:(NSObject *)param
@@ -75,7 +75,9 @@
             
         case ECacheType_ApiStrategy:
         {
-            filePath = [NSString stringWithFormat:@"%@/%@/%@",[PGContext dataPathForCache],[NSString MD5Encrypt:@"apiStrategy"], (NSString *)param];
+            NSString *string = (NSString *)param;
+            NSString *str = [NSString stringWithFormat:@"apiStrategy_%@", string];
+            filePath = [NSString stringWithFormat:@"%@/%@",[PGContext dataPathForCache],[NSString MD5Encrypt:str]];
             break;
         }
     }

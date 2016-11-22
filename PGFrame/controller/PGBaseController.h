@@ -40,8 +40,16 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
  */
 @property(nonatomic, assign, readonly)CGFloat nNavMaxY;
 
+/*
+ 当前window窗口区域
+ */
+@property(nonatomic, assign)CGRect mainFrame;
+
 - (UINavigationBar *)navBar;
 - (void)setNavTitleAttributes:(NSDictionary *)dicAttributes;
+
+//取消正在执行的任务 如网络请求
+- (void)cancelTask;
 
 /*
  初始化相应的数据
@@ -54,7 +62,7 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 - (void)createSubViews;
 
 /*
- 创建子视图完成
+  创建子视图完成
  */
 - (void)didCreateSubViews;
 
@@ -117,6 +125,8 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 #pragma mark request data
 - (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param;
 - (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam;
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param isShowWaiting:(BOOL)isShowWaiting;
+- (void)startRequestData:(PGApiType)apiType param:(NSDictionary *)param extendParma:(NSObject *)extendParam isShowWaiting:(BOOL)isShowWaiting;
 
 - (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param;
 - (void)startUploadFileData:(PGApiType)apiType data:(NSData *)data param:(NSDictionary *)param extendParma:(NSObject *)extendParam;
@@ -129,7 +139,6 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 #pragma mark -
 - (void)addSimpleTapGesture:(id<UIGestureRecognizerDelegate>)gestureDelegate;
 - (void)viewhandleSingleTap:(UITapGestureRecognizer *)gesture;
-
 @end
 
 /*
@@ -156,10 +165,5 @@ typedef NS_ENUM(NSInteger, PGWaitingViewStyle)
 - (void)hideWaitingView;
 
 @end
-
-
-
-
-
 
 

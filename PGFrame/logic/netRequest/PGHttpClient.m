@@ -52,9 +52,13 @@
     
     self.sessionTask = [manager POST:urlString parameters:self.requestParam progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSString *szStr =  [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSString *szStr =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
         PGHttpClient *strongSelf = weakSelf;
+        //原始数据，用作缓存
+        if(strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(dataRequestFinish:client:)]) {
+            [strongSelf.delegate dataRequestFinish:szStr client:strongSelf];
+        }
         [strongSelf parseData:szStr];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -149,7 +153,7 @@
         
         if(resultObj.nCode == CODE_NO_ERROR)
         {
-            [PGAPI parseDataWithType:self.apiType data:data];
+            resultObj.dataObject = [PGAPI parseDataWithType:self.apiType data:data];
         }
         
         return resultObj;

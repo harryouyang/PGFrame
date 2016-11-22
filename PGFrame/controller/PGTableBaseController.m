@@ -24,6 +24,16 @@
     self.mDataArray = [[NSMutableArray alloc] init];
 }
 
+- (void)createAndAddTableView:(CGRect)rect
+                        style:(UITableViewStyle)style
+           bEnableRefreshHead:(BOOL)bEnableRefreshHead
+                    bLoadMore:(BOOL)bloadmore
+                     complete:(void(^)(UITableView *table))complete
+{
+    self.mTableView = [self createTableView:rect style:style bEnableRefreshHead:bEnableRefreshHead bLoadMore:bloadmore complete:complete];
+    [self.view addSubview:self.mTableView];
+}
+
 - (UITableView *)createTableView:(CGRect)rect
                            style:(UITableViewStyle)style
               bEnableRefreshHead:(BOOL)bEnableRefreshHead
@@ -79,6 +89,11 @@
     return 1.0f/SCREEN_SCALE;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1.0f/SCREEN_SCALE;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
@@ -92,8 +107,25 @@
     return cell;
 }
 
+- (void)viewDidLayoutSubviews
+{
+    if(self.bSeparatorInset == NO)
+        return;
+    
+    if([self.mTableView respondsToSelector:@selector(setSeparatorInset:)])
+        [self.mTableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    
+    if(IOS8_LATER)
+    {
+        self.mTableView.layoutMargins = UIEdgeInsetsMake(0,0,0,0);
+    }
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.bSeparatorInset == NO)
+        return;
+    
     if([cell respondsToSelector:@selector(setSeparatorInset:)])
     {
         [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -101,6 +133,11 @@
     if([cell respondsToSelector:@selector(setLayoutMargins:)])
     {
         [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if(IOS8_LATER)
+    {
+        cell.preservesSuperviewLayoutMargins = NO;
     }
 }
 

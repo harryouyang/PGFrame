@@ -37,4 +37,6 @@ typedef void(^PGPayParamBlock)(NSString *orderId, PGPayType payType);
                   payType:(PGPayType)payType
                   orderId:(NSString *)szOrderId;
 
+- (void)cancelPay;
+
 @end

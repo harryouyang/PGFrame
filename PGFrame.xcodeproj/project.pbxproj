@@ -11,7 +11,6 @@
 		116ED2BA1DC88D2A003F2BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2AF1DC88D2A003F2BB2 /* Assets.xcassets */; };
 		116ED2BB1DC88D2A003F2BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2B01DC88D2A003F2BB2 /* LaunchScreen.storyboard */; };
 		116ED2BC1DC88D2A003F2BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2B21DC88D2A003F2BB2 /* Main.storyboard */; };
-		116ED2BD1DC88D2A003F2BB2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2B41DC88D2A003F2BB2 /* Info.plist */; };
 		116ED2BE1DC88D2A003F2BB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116ED2B51DC88D2A003F2BB2 /* main.m */; };
 		116ED2BF1DC88D2A003F2BB2 /* nativeInteraction.html in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2B61DC88D2A003F2BB2 /* nativeInteraction.html */; };
 		116ED2C01DC88D2A003F2BB2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116ED2B81DC88D2A003F2BB2 /* ViewController.m */; };
@@ -709,7 +708,6 @@
 				116ED3721DC88EE6003F2BB2 /* data_no@3x.png in Resources */,
 				116ED2BF1DC88D2A003F2BB2 /* nativeInteraction.html in Resources */,
 				116ED37D1DC88EE6003F2BB2 /* menber_top4@3x.png in Resources */,
-				116ED2BD1DC88D2A003F2BB2 /* Info.plist in Resources */,
 				116ED3741DC88EE6003F2BB2 /* icon_del_lab@3x.png in Resources */,
 				116ED3751DC88EE6003F2BB2 /* icon_return@3x.png in Resources */,
 				116ED2BA1DC88D2A003F2BB2 /* Assets.xcassets in Resources */,

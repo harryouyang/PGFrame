@@ -16,6 +16,7 @@
 - (void)dataRequestFailed:(PGResultObject *)resultObj client:(PGHttpClient *)client;
 @optional
 - (void)downloadProgress:(NSProgress *)downloadProgress client:(PGHttpClient *)client;
+- (void)dataRequestFinish:(NSString *)resultString client:(PGHttpClient *)client;
 @end
 
 /*
@@ -26,6 +27,7 @@
 @property(nonatomic, weak)id<PGApiDelegate> apiDelegate;
 @property(nonatomic, weak)id<PGHttpClientDelegate> delegate;
 @property(nonatomic, copy)NSString *requestMethod;
+@property(nonatomic, strong, readonly)NSDictionary *originRequestData;
 /*
  扩展参数
  */
@@ -34,7 +36,6 @@
  请求策略所用的key值，缓存接口数据与读取接口数据时用。
  */
 @property(nonatomic, copy)NSString *strategyKey;
-
 /*
  上传文件时的二进制数据
  */

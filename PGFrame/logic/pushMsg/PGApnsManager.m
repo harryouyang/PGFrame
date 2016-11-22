@@ -179,4 +179,10 @@ static PGApnsManager *s_apnsManager = nil;
     [[PGApp appRootController] presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark -
+- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+{
+    
+}
+
 @end

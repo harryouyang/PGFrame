@@ -28,4 +28,12 @@
  图片缩放大小，不等比缩放
  */
 - (UIImage *)scaledImageToSize:(CGSize)scaledSize;
+
+/** 给UIImage添加生成圆角图片 */
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
+
+/*
+ 将View生成图片
+ */
++ (UIImage *)imageFromView:(UIView *)targetView;
 @end

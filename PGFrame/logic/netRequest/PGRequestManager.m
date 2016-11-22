@@ -144,21 +144,7 @@ static PGRequestManager *s_requestManager = nil;
     client.apiDelegate = target;
     client.delegate = manger;
     client.extendParam = extendParam;
-    
-    //需要缓存的接口才做缓存处理
-    if([manger bEnableStrategy:type])
-    {
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:@(type).stringValue forKey:@"apiType"];
-        [dic addEntriesFromDictionary:param];
-        NSString *key = [NSString MD5Encrypt:[NSString jsonStringWithDictionary:dic]];
-        NSString *dataString = [manger cacheSringWithKey:key];
-        if(dataString)
-        {
-            [client parseData:dataString];
-            return;
-        }
-    }
+    client.fileData = data;
     
     if(target != nil)
         [manger addClient:client target:target tag:@(type).stringValue];
@@ -203,9 +189,24 @@ static PGRequestManager *s_requestManager = nil;
 
 - (void)downloadProgress:(NSProgress *)downloadProgress client:(PGHttpClient *)client
 {
-    if(client.apiDelegate)
+    if(client.apiDelegate && [client.apiDelegate respondsToSelector:@selector(downloadProgress:apiType:extendParam:)])
     {
         [client.apiDelegate downloadProgress:downloadProgress apiType:client.apiType extendParam:client.extendParam];
+    }
+}
+
+- (void)dataRequestFinish:(NSString *)resultString client:(PGHttpClient *)client
+{
+    PGRequestManager *manger = [PGRequestManager shareInstance];
+    //需要缓存的接口才做缓存处理
+    if([manger bEnableStrategy:client.apiType])
+    {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:@(client.apiType).stringValue forKey:@"apiType"];
+        [dic addEntriesFromDictionary:client.originRequestData];
+        NSString *key = [NSString MD5Encrypt:[NSString jsonStringWithDictionary:dic]];
+        [PGCacheManager cacheApiData:resultString key:key];
+        [self.allApiKeyTime setObject:[NSNumber numberWithDouble:[NSDate date].timeIntervalSince1970] forKey:key];
     }
 }
 
@@ -238,10 +239,6 @@ static PGRequestManager *s_requestManager = nil;
         if(nTime < 120)
         {
             dataString = (NSString *)[PGCacheManager getApiCacheStringWithKey:key];
-        }
-        else
-        {
-            [self.allApiKeyTime setObject:[NSNumber numberWithDouble:[NSDate date].timeIntervalSince1970] forKey:key];
         }
     }
     

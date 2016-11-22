@@ -142,4 +142,32 @@
     return newImage;
 }
 
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius
+{
+    CGRect rect = (CGRect){0.f, 0.f, self.size};
+    
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, UIScreen.mainScreen.scale);
+    CGContextAddPath(UIGraphicsGetCurrentContext(),
+                     [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
+    CGContextClip(UIGraphicsGetCurrentContext());
+    
+    [self drawInRect:rect];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
++ (UIImage *)imageFromView:(UIView *)targetView
+{
+    UIGraphicsBeginImageContextWithOptions(targetView.frame.size, NO, 0.0);
+    
+    [targetView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 @end

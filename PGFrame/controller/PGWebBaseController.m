@@ -24,6 +24,25 @@
 
 @implementation PGWebBaseController
 
+- (void)cancelTask
+{
+    [super cancelTask];
+    [self removeAllCachedResponses];
+}
+
+- (void)removeAllCachedResponses
+{
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies])
+    {
+        [storage deleteCookie:cookie];
+    }
+    //    清除webView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
 - (id)initWithTitle:(NSString *)title
 {
     if(self = [super init])
@@ -69,6 +88,8 @@
 
 - (void)createSubViews
 {
+    [super createSubViews];
+    
     float nOriginY = self.nNavMaxY;
     self.webView.frame = CGRectMake(0, nOriginY, self.view.frame.size.width, self.view.frame.size.height-nOriginY);
     [self.view addSubview:self.webView];
@@ -125,6 +146,7 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [self showWaitingView:@"数据加载中"];
     [self hideDataLoadErrorView];
     self.timeIndex = 0;
@@ -148,7 +170,7 @@
     
     [self hideDataLoadErrorView];
     
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '80%'"];
     

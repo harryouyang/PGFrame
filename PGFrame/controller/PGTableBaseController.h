@@ -15,6 +15,13 @@
 @property(nonatomic, strong)PGTableDataSource *mTableDataSource;
 @property(nonatomic, strong)NSMutableArray *mDataArray;
 @property(nonatomic, assign)NSInteger nNumOfPage;
+@property(nonatomic, assign)BOOL bSeparatorInset;
+
+- (void)createAndAddTableView:(CGRect)rect
+                        style:(UITableViewStyle)style
+           bEnableRefreshHead:(BOOL)bEnableRefreshHead
+                    bLoadMore:(BOOL)bloadmore
+                     complete:(void(^)(UITableView *table))complete;
 /*
  创建TableView
  */
@@ -43,4 +50,6 @@
 
 - (void)loadMoreDataFinish:(UIScrollView *)scrollView;
 - (void)loadMoreDataError:(UIScrollView *)scrollView error:(NSString *)msg;
+
+- (void)showLoadMoreView:(UIScrollView *)scrollView;
 @end
