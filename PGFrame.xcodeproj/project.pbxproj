@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111728301DE68BC6009D4EF6 /* PGDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117282F1DE68BC6009D4EF6 /* PGDownloadManager.m */; };
+		111728331DE68BFC009D4EF6 /* UIImageView+PGDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728321DE68BFC009D4EF6 /* UIImageView+PGDown.m */; };
+		111728361DE68E7F009D4EF6 /* PGDownTaskContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728351DE68E7F009D4EF6 /* PGDownTaskContainer.m */; };
+		111728391DE68F51009D4EF6 /* PGDownListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728381DE68F51009D4EF6 /* PGDownListController.m */; };
+		111728431DE6927C009D4EF6 /* PGDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728421DE6927C009D4EF6 /* PGDownloadCell.m */; };
+		111728461DE693B7009D4EF6 /* PGDownTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728451DE693B7009D4EF6 /* PGDownTaskController.m */; };
+		111728491DE69B2B009D4EF6 /* PGImageDownController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111728481DE69B2B009D4EF6 /* PGImageDownController.m */; };
+		1117284C1DE69C06009D4EF6 /* PGImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117284B1DE69C06009D4EF6 /* PGImageCell.m */; };
 		116ED2B91DC88D2A003F2BB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116ED2AE1DC88D2A003F2BB2 /* AppDelegate.m */; };
 		116ED2BA1DC88D2A003F2BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2AF1DC88D2A003F2BB2 /* Assets.xcassets */; };
 		116ED2BB1DC88D2A003F2BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116ED2B01DC88D2A003F2BB2 /* LaunchScreen.storyboard */; };
@@ -94,6 +102,22 @@
 /* Begin PBXFileReference section */
 		0654A0A7635C9105FA3DC127 /* Pods-PGFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGFrame.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame.release.xcconfig"; sourceTree = "<group>"; };
 		09AEF4ADA982D24319A1CC0C /* Pods-PGFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGFrame/Pods-PGFrame.debug.xcconfig"; sourceTree = "<group>"; };
+		1117282E1DE68BC6009D4EF6 /* PGDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDownloadManager.h; sourceTree = "<group>"; };
+		1117282F1DE68BC6009D4EF6 /* PGDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDownloadManager.m; sourceTree = "<group>"; };
+		111728311DE68BFC009D4EF6 /* UIImageView+PGDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+PGDown.h"; sourceTree = "<group>"; };
+		111728321DE68BFC009D4EF6 /* UIImageView+PGDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+PGDown.m"; sourceTree = "<group>"; };
+		111728341DE68E7F009D4EF6 /* PGDownTaskContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDownTaskContainer.h; sourceTree = "<group>"; };
+		111728351DE68E7F009D4EF6 /* PGDownTaskContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDownTaskContainer.m; sourceTree = "<group>"; };
+		111728371DE68F51009D4EF6 /* PGDownListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDownListController.h; sourceTree = "<group>"; };
+		111728381DE68F51009D4EF6 /* PGDownListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDownListController.m; sourceTree = "<group>"; };
+		111728411DE6927C009D4EF6 /* PGDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDownloadCell.h; sourceTree = "<group>"; };
+		111728421DE6927C009D4EF6 /* PGDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDownloadCell.m; sourceTree = "<group>"; };
+		111728441DE693B7009D4EF6 /* PGDownTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDownTaskController.h; sourceTree = "<group>"; };
+		111728451DE693B7009D4EF6 /* PGDownTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDownTaskController.m; sourceTree = "<group>"; };
+		111728471DE69B2B009D4EF6 /* PGImageDownController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGImageDownController.h; sourceTree = "<group>"; };
+		111728481DE69B2B009D4EF6 /* PGImageDownController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGImageDownController.m; sourceTree = "<group>"; };
+		1117284A1DE69C06009D4EF6 /* PGImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGImageCell.h; sourceTree = "<group>"; };
+		1117284B1DE69C06009D4EF6 /* PGImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGImageCell.m; sourceTree = "<group>"; };
 		1134A3DD1D9225C00030B728 /* PGFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116ED2AD1DC88D2A003F2BB2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		116ED2AE1DC88D2A003F2BB2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -256,6 +280,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1117282D1DE68AB3009D4EF6 /* download */ = {
+			isa = PBXGroup;
+			children = (
+				1117282E1DE68BC6009D4EF6 /* PGDownloadManager.h */,
+				1117282F1DE68BC6009D4EF6 /* PGDownloadManager.m */,
+				111728311DE68BFC009D4EF6 /* UIImageView+PGDown.h */,
+				111728321DE68BFC009D4EF6 /* UIImageView+PGDown.m */,
+				111728341DE68E7F009D4EF6 /* PGDownTaskContainer.h */,
+				111728351DE68E7F009D4EF6 /* PGDownTaskContainer.m */,
+			);
+			path = download;
+			sourceTree = "<group>";
+		};
+		1117283A1DE69168009D4EF6 /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		1117283B1DE69168009D4EF6 /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		1117283C1DE69168009D4EF6 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1117283D1DE69168009D4EF6 /* logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = logic;
+			sourceTree = "<group>";
+		};
+		1117283E1DE69168009D4EF6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1117283F1DE69168009D4EF6 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				111728401DE69168009D4EF6 /* tableCell */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		111728401DE69168009D4EF6 /* tableCell */ = {
+			isa = PBXGroup;
+			children = (
+				111728411DE6927C009D4EF6 /* PGDownloadCell.h */,
+				111728421DE6927C009D4EF6 /* PGDownloadCell.m */,
+				1117284A1DE69C06009D4EF6 /* PGImageCell.h */,
+				1117284B1DE69C06009D4EF6 /* PGImageCell.m */,
+			);
+			path = tableCell;
+			sourceTree = "<group>";
+		};
 		1134A3D41D9225C00030B728 = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +370,12 @@
 		1134A41B1D922C0A0030B728 /* panggu */ = {
 			isa = PBXGroup;
 			children = (
+				1117283A1DE69168009D4EF6 /* category */,
+				1117283B1DE69168009D4EF6 /* image */,
+				1117283C1DE69168009D4EF6 /* lib */,
+				1117283D1DE69168009D4EF6 /* logic */,
+				1117283E1DE69168009D4EF6 /* model */,
+				1117283F1DE69168009D4EF6 /* ui */,
 				116ED3A31DC88EF5003F2BB2 /* home */,
 				116ED3B41DC88EF5003F2BB2 /* list */,
 				116ED3B51DC88EF5003F2BB2 /* setting */,
@@ -439,6 +536,7 @@
 		116ED3191DC88EE6003F2BB2 /* logic */ = {
 			isa = PBXGroup;
 			children = (
+				1117282D1DE68AB3009D4EF6 /* download */,
 				116ED31A1DC88EE6003F2BB2 /* netRequest */,
 				116ED3271DC88EE6003F2BB2 /* patch */,
 				116ED32C1DC88EE6003F2BB2 /* PGApp.h */,
@@ -601,6 +699,12 @@
 				116ED3B11DC88EF5003F2BB2 /* PGPayController.m */,
 				116ED3B21DC88EF5003F2BB2 /* PGRefreshController.h */,
 				116ED3B31DC88EF5003F2BB2 /* PGRefreshController.m */,
+				111728371DE68F51009D4EF6 /* PGDownListController.h */,
+				111728381DE68F51009D4EF6 /* PGDownListController.m */,
+				111728441DE693B7009D4EF6 /* PGDownTaskController.h */,
+				111728451DE693B7009D4EF6 /* PGDownTaskController.m */,
+				111728471DE69B2B009D4EF6 /* PGImageDownController.h */,
+				111728481DE69B2B009D4EF6 /* PGImageDownController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -789,6 +893,7 @@
 				116ED39D1DC88EE6003F2BB2 /* PGRefreshRotate.m in Sources */,
 				116ED3B61DC88EF5003F2BB2 /* PGH5JsController.m in Sources */,
 				116ED38F1DC88EE6003F2BB2 /* PGCacheManager.m in Sources */,
+				111728301DE68BC6009D4EF6 /* PGDownloadManager.m in Sources */,
 				116ED3B81DC88EF5003F2BB2 /* PGMsgAndErrorController.m in Sources */,
 				116ED3961DC88EE6003F2BB2 /* PGVersionManager.m in Sources */,
 				116ED3931DC88EE6003F2BB2 /* PGUIKitUtil.m in Sources */,
@@ -805,10 +910,13 @@
 				116ED36E1DC88EE6003F2BB2 /* PGBaseController.m in Sources */,
 				116ED36B1DC88EE6003F2BB2 /* PGJSObject.m in Sources */,
 				116ED3981DC88EE6003F2BB2 /* PGBaseObj.m in Sources */,
+				111728361DE68E7F009D4EF6 /* PGDownTaskContainer.m in Sources */,
+				111728431DE6927C009D4EF6 /* PGDownloadCell.m in Sources */,
 				116ED3641DC88EE6003F2BB2 /* NSString+json.m in Sources */,
 				116ED3891DC88EE6003F2BB2 /* PGHttpClient.m in Sources */,
 				116ED3B71DC88EF5003F2BB2 /* PGHomeController.m in Sources */,
 				116ED3A21DC88EE6003F2BB2 /* PGWaitingView.m in Sources */,
+				111728331DE68BFC009D4EF6 /* UIImageView+PGDown.m in Sources */,
 				116ED39C1DC88EE6003F2BB2 /* PGBaseRefreshView.m in Sources */,
 				116ED38A1DC88EE6003F2BB2 /* PGRequestManager.m in Sources */,
 				116ED3631DC88EE6003F2BB2 /* NSString+encrypt.m in Sources */,
@@ -816,9 +924,12 @@
 				116ED38D1DC88EE6003F2BB2 /* PGPatchObject.m in Sources */,
 				116ED38B1DC88EE6003F2BB2 /* PGResultObject.m in Sources */,
 				116ED3BA1DC88EF5003F2BB2 /* PGOrderDetailController.m in Sources */,
+				111728391DE68F51009D4EF6 /* PGDownListController.m in Sources */,
 				116ED38E1DC88EE6003F2BB2 /* PGApp.m in Sources */,
 				116ED3971DC88EE6003F2BB2 /* PGVersionObject.m in Sources */,
 				116ED3611DC88EE6003F2BB2 /* NSDate+PGDateExtend.m in Sources */,
+				111728491DE69B2B009D4EF6 /* PGImageDownController.m in Sources */,
+				1117284C1DE69C06009D4EF6 /* PGImageCell.m in Sources */,
 				116ED3991DC88EE6003F2BB2 /* PGPaySheetView.m in Sources */,
 				116ED3871DC88EE6003F2BB2 /* PGDataParseManager.m in Sources */,
 				116ED36D1DC88EE6003F2BB2 /* PGBaseController+pay.m in Sources */,
@@ -831,6 +942,7 @@
 				116ED3BC1DC88EF5003F2BB2 /* PGPayController.m in Sources */,
 				116ED3711DC88EE6003F2BB2 /* PGWebBaseController.m in Sources */,
 				116ED36C1DC88EE6003F2BB2 /* PGBaseController+errorView.m in Sources */,
+				111728461DE693B7009D4EF6 /* PGDownTaskController.m in Sources */,
 				116ED3691DC88EE6003F2BB2 /* UIViewController+message.m in Sources */,
 				116ED38C1DC88EE6003F2BB2 /* PGPatchManager.m in Sources */,
 				116ED36A1DC88EE6003F2BB2 /* PGJSBaseController.m in Sources */,

@@ -15,6 +15,8 @@
 #import "PGNetController.h"
 #import "PGH5JsController.h"
 #import "PGRefreshController.h"
+#import "PGDownTaskController.h"
+#import "PGImageDownController.h"
 
 @implementation PGHomeController
 
@@ -81,6 +83,16 @@
         PGRefreshController *controller = [[PGRefreshController alloc] init];
         [self pushNewViewController:controller];
     }
+    else if(indexPath.row == 6)
+    {
+        PGDownTaskController *controller = [[PGDownTaskController alloc] init];
+        [self pushNewViewController:controller];
+    }
+    else if(indexPath.row == 7)
+    {
+        PGImageDownController *controller = [[PGImageDownController alloc] init];
+        [self pushNewViewController:controller];
+    }
 }
 
 #pragma mark -
@@ -88,7 +100,7 @@
 {
     [super createInitData];
     
-    [self.mDataArray addObjectsFromArray:@[@"消息提示、错误提示、遮罩层",@"网络请求模块",@"数据缓存、读取、删除",@"支付模块",@"H5交互",@"下拉刷新"]];
+    [self.mDataArray addObjectsFromArray:@[@"消息提示、错误提示、遮罩层",@"网络请求模块",@"数据缓存、读取、删除",@"支付模块",@"H5交互",@"下拉刷新",@"下载队列",@"图片下载"]];
     
     self.mTableDataSource = [[PGTableDataSource alloc] initWithItems:self.mDataArray cellIdentifier:@"tableCellIndentifier" createCellBlock:^UITableViewCell *(NSString *cellIdentifier) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
