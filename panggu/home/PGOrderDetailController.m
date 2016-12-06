@@ -70,7 +70,7 @@
 }
 
 #pragma mark - PGApiDelegate
-- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
 {
     [self hideWaitingView];
     if(apiType == API_TYPE_ORDER_PAY)

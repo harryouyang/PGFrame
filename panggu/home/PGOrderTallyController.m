@@ -61,12 +61,11 @@
 - (void)tally
 {
     //创建订单
-    [self showWaitingView:nil];
     [self startRequestData:API_TYPE_CREATE_ORDER param:@{@"money":@"12.0",@"product":@"乒乓球"}];
 }
 
 #pragma mark -
-- (void)dataRequestFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
+- (void)requestDataFinish:(PGResultObject *)resultObj apiType:(PGApiType)apiType
 {
     [self hideWaitingView];
     if(apiType == API_TYPE_CREATE_ORDER)

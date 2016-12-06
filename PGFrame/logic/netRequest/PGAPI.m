@@ -33,6 +33,14 @@
             urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/s/system/appversion"];
             break;
         }
+        case API_TYPE_CREATE_ORDER: {
+            urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/o/order/create"];
+            break;
+        }
+        case API_TYPE_ORDER_PAY: {
+            urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"/o/order/pay"];
+            break;
+        }
         default:
             break;
     }

@@ -21,7 +21,7 @@
 
 
 #if USE_CURRENT_ENVIRONMENT == USE_TEST
-#define BASE_URL                    @""
+#define BASE_URL                    @"http://api.yks.com/apiv3/public"
 #define VERSION_MARK                @" -->测试库版本"
 #elif USE_CURRENT_ENVIRONMENT == USE_PRE
 #define BASE_URL                    @""

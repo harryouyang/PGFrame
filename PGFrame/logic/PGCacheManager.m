@@ -134,7 +134,7 @@
 
 + (void)clearCacheData:(void(^)())finishBlock
 {
-    NSString *path = [PGContext dataPathForCache];
+    NSString *path = [PGContext imagePath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:path])
     {
